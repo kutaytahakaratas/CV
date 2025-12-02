@@ -4,17 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Kutay Taha Karataş - Web Tasarımcı ve Frontend Developer. HTML5, CSS, JavaScript, React ve modern web teknolojileri konusunda uzman.">
-    <meta name="keywords" content="web tasarımcı, frontend developer, HTML, CSS, JavaScript, React, portfolio">
+    <meta name="description" content="Kutay Taha Karataş - Deneyim ve Eğitim Geçmişi.">
+    <meta name="keywords" content="web tasarımcı, frontend developer, deneyim, eğitim, portfolio">
     <meta name="author" content="Kutay Taha Karataş">
 
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Kutay Taha Karataş - Web Tasarımcı">
-    <meta property="og:description" content="Modern web teknolojileri ile profesyonel web siteleri geliştiriyorum.">
+    <meta property="og:title" content="Kutay Taha Karataş - Deneyim">
+    <meta property="og:description" content="Profesyonel deneyimim ve eğitim geçmişim.">
     <meta property="og:type" content="website">
 
-    <title>Kutay Taha Karataş - Web Tasarımcı & Frontend Developer</title>
+    <title>Deneyim - Kutay Taha Karataş</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -34,9 +33,9 @@
         <div class="container">
             <a href="index.html" class="navbar-brand">KUTAY TAHA KARATAŞ</a>
             <ul class="navbar-menu" id="navbarMenu">
-                <li><a href="index.html" class="active">Ana Sayfa</a></li>
+                <li><a href="index.html">Ana Sayfa</a></li>
                 <li><a href="about.html">Hakkımda</a></li>
-                <li><a href="experience.html">Deneyim</a></li>
+                <li><a href="experience.html" class="active">Deneyim</a></li>
                 <li><a href="skills.html">Beceriler</a></li>
                 <li><a href="projects.html">Projeler</a></li>
                 <li><a href="contact.html">İletişim</a></li>
@@ -47,37 +46,61 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero section" id="home">
+    <!-- Experience Section -->
+    <section class="experience section" id="experience" style="padding-top: 120px;">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="fade-in-up">
-                        Merhaba, Ben <br>
-                        <span class="gradient-text">Kutay Taha Karataş</span>
-                    </h1>
-                    <p class="hero-subtitle fade-in-up" style="animation-delay: 0.1s;">
-                        <span id="typed-text"></span><span class="cursor">|</span>
-                    </p>
-                    <p class="hero-description fade-in-up" style="animation-delay: 0.2s;">
-                        Modern web teknolojileri kullanarak kullanıcı dostu, responsive ve estetik web siteleri
-                        tasarlıyorum.
-                        HTML5, CSS3, JavaScript ve React ile projeler geliştiriyorum.
-                    </p>
-                    <div class="hero-cta fade-in-up" style="animation-delay: 0.3s;">
-                        <a href="projects.html" class="btn btn-primary">
-                            <i class="fas fa-briefcase"></i>
-                            Projelerimi Gör
-                        </a>
-                        <a href="contact.html" class="btn btn-outline">
-                            <i class="fas fa-envelope"></i>
-                            İletişime Geç
-                        </a>
+            <h2 class="section-title reveal">Deneyim & Eğitim</h2>
+            <div class="timeline">
+                <!-- Current Education -->
+                <div class="timeline-item reveal">
+                    <span class="timeline-date">Eylül 2024 - Haziran 2026</span>
+                    <div class="timeline-content card">
+                        <h3>Web Tasarımı ve Kodlama</h3>
+                        <p class="timeline-subtitle">Bandırma 17 Eylül Üniversitesi</p>
+                        <p>
+                            Ön lisans eğitimim süresince modern web teknolojileri, responsive tasarım,
+                            kullanıcı deneyimi (UX) ve arayüz tasarımı (UI) konularında kapsamlı eğitim alıyorum.
+                        </p>
+                        <ul style="margin-top: 1rem; color: var(--color-text-secondary);">
+                            <li>HTML5, CSS3 ve JavaScript ile web geliştirme</li>
+                            <li>Responsive ve mobile-first tasarım prensipleri</li>
+                            <li>WordPress ve CMS sistemleri</li>
+                            <li>Adobe XD ile UI/UX tasarım</li>
+                        </ul>
                     </div>
                 </div>
-                <div class="hero-image fade-in" style="animation-delay: 0.4s;">
-                    <div class="hero-image-wrapper">
-                        <img src="profile.jpg" alt="Kutay Taha Karataş">
+
+                <!-- Previous Education -->
+                <div class="timeline-item reveal">
+                    <span class="timeline-date">2019 - 2023</span>
+                    <div class="timeline-content card">
+                        <h3>Lise Eğitimi</h3>
+                        <p class="timeline-subtitle">Yıldız Ahmet Arayıcı Anadolu Lisesi</p>
+                        <p>
+                            Lise eğitimim boyunca temel bilgisayar bilimleri ve web teknolojilerine olan ilgim başladı.
+                            Bu dönemde kendi kendime HTML, CSS ve temel JavaScript öğrenerek ilk projelerimi
+                            geliştirdim.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Freelance Work -->
+                <div class="timeline-item reveal">
+                    <span class="timeline-date">2022 - Devam Ediyor</span>
+                    <div class="timeline-content card">
+                        <h3>Freelance Web Developer</h3>
+                        <p class="timeline-subtitle">Serbest Çalışma</p>
+                        <p>
+                            Küçük ve orta ölçekli işletmeler için web siteleri tasarlıyor ve geliştiriyorum.
+                            Müşteri ihtiyaçlarını anlama, proje yönetimi ve deadline'lara uyma konusunda deneyim
+                            kazandım.
+                        </p>
+                        <ul style="margin-top: 1rem; color: var(--color-text-secondary);">
+                            <li>Kurumsal web siteleri tasarımı</li>
+                            <li>E-ticaret platformları geliştirme</li>
+                            <li>WordPress tema özelleştirme</li>
+                            <li>SEO optimizasyonu ve performans iyileştirme</li>
+                        </ul>
                     </div>
                 </div>
             </div>

@@ -4,17 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Kutay Taha Karataş - Web Tasarımcı ve Frontend Developer. HTML5, CSS, JavaScript, React ve modern web teknolojileri konusunda uzman.">
-    <meta name="keywords" content="web tasarımcı, frontend developer, HTML, CSS, JavaScript, React, portfolio">
+    <meta name="description" content="Kutay Taha Karataş - İletişim. Benimle iletişime geçin.">
+    <meta name="keywords" content="web tasarımcı, frontend developer, iletişim, contact, email">
     <meta name="author" content="Kutay Taha Karataş">
 
     <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="Kutay Taha Karataş - Web Tasarımcı">
-    <meta property="og:description" content="Modern web teknolojileri ile profesyonel web siteleri geliştiriyorum.">
+    <meta property="og:title" content="Kutay Taha Karataş - İletişim">
+    <meta property="og:description" content="Projeleriniz için benimle iletişime geçin.">
     <meta property="og:type" content="website">
 
-    <title>Kutay Taha Karataş - Web Tasarımcı & Frontend Developer</title>
+    <title>İletişim - Kutay Taha Karataş</title>
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -34,12 +33,12 @@
         <div class="container">
             <a href="index.html" class="navbar-brand">KUTAY TAHA KARATAŞ</a>
             <ul class="navbar-menu" id="navbarMenu">
-                <li><a href="index.html" class="active">Ana Sayfa</a></li>
+                <li><a href="index.html">Ana Sayfa</a></li>
                 <li><a href="about.html">Hakkımda</a></li>
                 <li><a href="experience.html">Deneyim</a></li>
                 <li><a href="skills.html">Beceriler</a></li>
                 <li><a href="projects.html">Projeler</a></li>
-                <li><a href="contact.html">İletişim</a></li>
+                <li><a href="contact.html" class="active">İletişim</a></li>
             </ul>
             <button class="mobile-menu-toggle" id="mobileMenuToggle">
                 <i class="fas fa-bars"></i>
@@ -47,39 +46,62 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero section" id="home">
+    <!-- Contact Section -->
+    <section class="contact section" id="contact" style="padding-top: 120px;">
         <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="fade-in-up">
-                        Merhaba, Ben <br>
-                        <span class="gradient-text">Kutay Taha Karataş</span>
-                    </h1>
-                    <p class="hero-subtitle fade-in-up" style="animation-delay: 0.1s;">
-                        <span id="typed-text"></span><span class="cursor">|</span>
-                    </p>
-                    <p class="hero-description fade-in-up" style="animation-delay: 0.2s;">
-                        Modern web teknolojileri kullanarak kullanıcı dostu, responsive ve estetik web siteleri
-                        tasarlıyorum.
-                        HTML5, CSS3, JavaScript ve React ile projeler geliştiriyorum.
-                    </p>
-                    <div class="hero-cta fade-in-up" style="animation-delay: 0.3s;">
-                        <a href="projects.html" class="btn btn-primary">
-                            <i class="fas fa-briefcase"></i>
-                            Projelerimi Gör
-                        </a>
-                        <a href="contact.html" class="btn btn-outline">
+            <h2 class="section-title reveal">İletişim</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item reveal">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Telefon</h3>
+                            <p>0 533 130 28 32</p>
+                        </div>
+                    </div>
+                    <div class="contact-item reveal">
+                        <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
-                            İletişime Geç
-                        </a>
+                        </div>
+                        <div class="contact-details">
+                            <h3>E-posta</h3>
+                            <p>kutaytahakaratas@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item reveal">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Konum</h3>
+                            <p>Bandırma 17 Eylül Üniversitesi<br>Bandırma, Balıkesir</p>
+                        </div>
                     </div>
                 </div>
-                <div class="hero-image fade-in" style="animation-delay: 0.4s;">
-                    <div class="hero-image-wrapper">
-                        <img src="profile.jpg" alt="Kutay Taha Karataş">
+                <form class="contact-form reveal" id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Adınız</label>
+                        <input type="text" id="name" name="name" required>
                     </div>
-                </div>
+                    <div class="form-group">
+                        <label for="email">E-posta</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Konu</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mesajınız</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-paper-plane"></i>
+                        Gönder
+                    </button>
+                </form>
             </div>
         </div>
     </section>
