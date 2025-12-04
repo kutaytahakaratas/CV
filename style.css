@@ -1089,16 +1089,6 @@ a:hover {
   .cta-buttons {
     flex-direction: column;
     width: 100%;
-  }
-
-  .cta-buttons .btn {
-    width: 100%;
-  }
-
-  /* Disable scroll animations completely on mobile for performance */
-  .reveal {
-    opacity: 1 !important;
-    transform: none !important;
     transition: none !important;
   }
 
