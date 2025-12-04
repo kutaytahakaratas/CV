@@ -19,19 +19,19 @@
   /* Gradients */
   --gradient-primary: linear-gradient(135deg, hsl(217, 91%, 60%) 0%, hsl(199, 89%, 48%) 100%);
   --gradient-hero: linear-gradient(135deg, hsl(217, 91%, 60%) 0%, hsl(199, 89%, 48%) 50%, hsl(142, 71%, 45%) 100%);
-  --gradient-card: linear-gradient(135deg, rgba(59, 130, 246, 0.08) 0%, rgba(14, 165, 233, 0.08) 100%);
+  --gradient-card: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(14, 165, 233, 0.1) 100%);
 
-  /* Neutral Colors - Lighter Theme */
-  --color-bg-primary: hsl(210, 20%, 98%);
-  --color-bg-secondary: hsl(210, 20%, 95%);
-  --color-bg-tertiary: hsl(210, 20%, 92%);
+  /* Neutral Colors - Dark Theme */
+  --color-bg-primary: hsl(220, 26%, 10%);
+  --color-bg-secondary: hsl(220, 20%, 14%);
+  --color-bg-tertiary: hsl(220, 18%, 18%);
   --color-surface: rgba(59, 130, 246, 0.05);
   --color-surface-hover: rgba(59, 130, 246, 0.1);
 
-  /* Text Colors - Dark text on light background */
-  --color-text-primary: hsl(210, 20%, 15%);
-  --color-text-secondary: hsl(210, 15%, 35%);
-  --color-text-muted: hsl(210, 10%, 55%);
+  /* Text Colors - Light text on dark background */
+  --color-text-primary: hsl(0, 0%, 98%);
+  --color-text-secondary: hsl(0, 0%, 75%);
+  --color-text-muted: hsl(0, 0%, 55%);
 
   /* Spacing Scale */
   --space-xs: 0.5rem;
@@ -201,14 +201,14 @@ a:hover {
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(17, 24, 39, 0.9);
   backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+  border-bottom: 1px solid rgba(59, 130, 246, 0.2);
   transition: all var(--transition-base);
 }
 
 .navbar.scrolled {
-  background: rgba(255, 255, 255, 0.98);
+  background: rgba(17, 24, 39, 0.95);
   box-shadow: var(--shadow-md);
 }
 
@@ -408,7 +408,7 @@ a:hover {
   background: var(--color-bg-secondary);
   border-radius: var(--radius-lg);
   padding: var(--space-xl);
-  border: 1px solid rgba(59, 130, 246, 0.15);
+  border: 1px solid rgba(59, 130, 246, 0.2);
   transition: all var(--transition-base);
   position: relative;
   overflow: hidden;
@@ -430,7 +430,7 @@ a:hover {
 .card:hover {
   transform: translateY(-8px);
   box-shadow: var(--shadow-lg);
-  border-color: rgba(59, 130, 246, 0.4);
+  border-color: rgba(59, 130, 246, 0.5);
 }
 
 .card:hover::before {
