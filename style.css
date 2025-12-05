@@ -1219,6 +1219,48 @@ a:hover {
     opacity: 1 !important;
     transform: none !important;
   }
+
+  /* Mobilde hover efektlerini devre dışı bırak - touch cihazlarda takılma önlenir */
+  .social-link,
+  .social-card,
+  .social-card-icon,
+  .contact-card,
+  .contact-card-icon,
+  .skill-category-icon,
+  .card,
+  .stat-card,
+  .project-card,
+  .btn {
+    transform: none !important;
+  }
+
+  .social-link:hover,
+  .social-card:hover {
+    transform: none !important;
+  }
+
+  /* Beceri ikonları mobilde animasyonları koru ama hover'ı kaldır */
+  .skill-category-icon.animated-icon {
+    animation: icon-pulse 3s ease-in-out infinite;
+  }
+
+  .skill-category:hover .skill-category-icon {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  /* Mobilde bozuk animasyonları düzelt */
+  .stat-card:hover {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  /* Touch olayları için aktif durumu kullan */
+  .social-link:active,
+  .social-card:active {
+    transform: scale(0.95) !important;
+    transition: transform 0.1s ease !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1887,5 +1929,80 @@ i {
 
 .navbar-brand:hover img {
   transform: rotate(360deg);
+}
+
+/* ==========================================
+   TOUCH DEVICE FIXES
+   Sadece gerçek hover destekleyen cihazlarda
+   hover efektlerini etkinleştir
+   ========================================== */
+
+/* Touch cihazlarda hover durumlarını sıfırla */
+@media (hover: none) {
+  .social-link:hover,
+  .social-card:hover,
+  .card:hover,
+  .contact-card:hover,
+  .project-card:hover,
+  .stat-card:hover,
+  .skill-category:hover .skill-category-icon,
+  .btn:hover {
+    transform: none !important;
+    box-shadow: none !important;
+  }
+
+  .social-card:hover .social-card-icon,
+  .contact-card:hover .contact-card-icon {
+    transform: none !important;
+  }
+
+  /* Touch cihazlarda aktif dokunma efekti */
+  .social-link:active,
+  .social-card:active,
+  .btn:active {
+    transform: scale(0.97) !important;
+    opacity: 0.9;
+  }
+
+  /* Animasyonları koru ama hover tabanlı olanları kaldır */
+  .skill-category-icon.animated-icon::before {
+    animation: icon-rotate 4s linear infinite;
+  }
+
+  .skill-category-icon.animated-icon {
+    animation: icon-pulse 3s ease-in-out infinite;
+  }
+
+  /* Contact card hover animasyonlarını kaldır */
+  .contact-card:hover .contact-card-icon {
+    animation: none !important;
+  }
+
+  /* Sosyal medya ikonları hover sonrası sıfırlansın */
+  .social-card-icon {
+    transform: none !important;
+  }
+}
+
+/* Sadece hover destekleyen cihazlarda hover efektlerini etkinleştir */
+@media (hover: hover) and (pointer: fine) {
+  .social-link:hover {
+    transform: translateY(-8px) rotate(10deg) scale(1.15);
+    border-color: var(--color-primary);
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+  }
+
+  .social-card:hover {
+    transform: translateY(-8px) rotate(-3deg) scale(1.02);
+  }
+
+  .social-card:hover .social-card-icon {
+    transform: rotate(360deg) scale(1.3);
+  }
+
+  .skill-category:hover .skill-category-icon {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 25px rgba(59, 130, 246, 0.5);
+  }
 }
 
