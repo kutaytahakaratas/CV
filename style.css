@@ -1449,7 +1449,7 @@ a:hover {
 
 .availability-icon {
   font-size: var(--font-size-3xl);
-  color: #10b981;
+  color: var(--color-primary);
   animation: pulse 2s ease-in-out infinite;
 }
 
