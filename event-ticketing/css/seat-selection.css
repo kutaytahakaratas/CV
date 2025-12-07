@@ -405,22 +405,133 @@
 }
 
 
-@media (max-width: 640px) {
-  .seats-grid {
-    grid-template-columns: repeat(8, 1fr);
-    gap: 4px;
+/* Responsive - Tablet */
+@media (max-width: 1024px) {
+  .seat-selection-layout {
+    grid-template-columns: 1fr;
   }
   
-  .seat {
-    font-size: 0.625rem;
+  .cart-sidebar {
+    position: static;
+    margin-top: var(--space-xl);
+  }
+}
+
+/* Responsive - Mobile */
+@media (max-width: 768px) {
+  .seat-selection-container {
+    padding: var(--space-md) 0;
+  }
+  
+  .event-info-bar {
+    padding: var(--space-md);
+  }
+  
+  .event-info-content h2 {
+    font-size: 1.25rem;
+  }
+  
+  .seat-map-container {
+    padding: var(--space-md);
+    overflow-x: auto;
+  }
+  
+  .stage-container {
+    margin-bottom: var(--space-lg);
   }
   
   .stage {
     font-size: 1rem;
     padding: var(--space-md) var(--space-lg);
+    min-width: 200px;
+  }
+  
+  .seat-legend {
+    gap: var(--space-md);
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .legend-item {
+    font-size: 0.75rem;
+  }
+  
+  .seat-icon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .seats-grid {
+    min-width: 600px;
+    gap: 6px;
+  }
+  
+  .seat {
+    font-size: 0.7rem;
+    min-height: 28px;
+  }
+  
+  .cart-sidebar {
+    margin-top: var(--space-lg);
+  }
+  
+  .cart-header {
+    padding: var(--space-md);
+  }
+  
+  .cart-header h3 {
+    font-size: 1rem;
+  }
+  
+  .cart-content {
+    padding: var(--space-md);
+    min-height: 150px;
+    max-height: 300px;
+  }
+  
+  .cart-item {
+    padding: var(--space-sm);
+  }
+  
+  .cart-item-info h4 {
+    font-size: 0.875rem;
+  }
+  
+  .cart-footer {
+    padding: var(--space-md);
+  }
+  
+  .cart-total {
+    font-size: 1rem;
+  }
+  
+  .total-price {
+    font-size: 1.25rem;
+  }
+}
+
+/* Responsive - Small Mobile */
+@media (max-width: 480px) {
+  .seats-grid {
+    min-width: 500px;
+    gap: 4px;
+  }
+  
+  .seat {
+    font-size: 0.625rem;
+    min-height: 24px;
+  }
+  
+  .stage {
+    font-size: 0.875rem;
+    padding: var(--space-sm) var(--space-md);
   }
   
   .seat-legend {
     gap: var(--space-sm);
+  }
+  
+  .legend-item span {
+    display: none;
   }
 }
