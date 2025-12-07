@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="tr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Etkinlik Detayı - KolayBilet">
+        <title>Etkinlik Detayı - KolayBilet</title>
+
+        <!-- Font Awesome -->
+        <link
+        rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/event-detail.css">
+    </head>
+    <body>
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <a href="index.html" class="logo">
+                        <i class="fas fa-ticket-alt"></i>
+                        <span>KolayBilet</span>
+                    </a>
+                    <nav class="nav" id="nav">
+                        <a href="index.html" class="nav-link">Ana Sayfa</a>
+                        <a href="index.html#events" class="nav-link">Etkinlikler</a>
+                        <a href="index.html#categories" class="nav-link">Kategoriler</a>
+                        <a href="profile.html" class="nav-link">Profilim</a>
+                    </nav>
+                    <button class="mobile-toggle" id="mobileToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Event Detail Container -->
+        <main class="event-detail-container">
+            <div
+                class="container">
+                <!-- Back Button -->
+                <a href="index.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i>
+                    Etkinliklere Dön
+                </a>
+
+                <!-- Event Hero -->
+                <div class="event-hero" id="eventHero">
+                    <img src="" alt="Event" class="event-hero-image" id="eventImage">
+                    <div class="event-hero-overlay">
+                        <div class="event-hero-content">
+                            <span class="event-category-badge" id="eventCategory">
+                                <i class="fas fa-music"></i>
+                                Konser
+                            </span>
+                            <h1 class="event-hero-title" id="eventTitle">Etkinlik Başlığı</h1>
+                            <div class="event-hero-meta">
+                                <span>
+                                    <i class="far fa-calendar"></i>
+                                    <span id="eventDate">Tarih</span>
+                                </span>
+                                <span>
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span id="eventLocation">Konum</span>
+                                </span>
+                                <span>
+                                    <i class="fas fa-clock"></i>
+                                    <span id="eventTime">Saat</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event Content -->
+                <div
+                    class="event-detail-grid">
+                    <!-- Left Column - Details -->
+                    <div class="event-details">
+                        <section class="detail-section">
+                            <h2>
+                                <i class="fas fa-info-circle"></i>
+                                Etkinlik Hakkında</h2>
+                            <p id="eventDescription">
+                                Bu etkinlik hakkında detaylı bilgi burada yer alacak.
+                            </p>
+                        </section>
+
+                        <section class="detail-section">
+                            <h2>
+                                <i class="fas fa-star"></i>
+                                Öne Çıkan Özellikler</h2>
+                            <ul class="features-list" id="eventFeatures">
+                                <li>
+                                    <i class="fas fa-check-circle"></i>
+                                    Özellik 1</li>
+                                <li>
+                                    <i class="fas fa-check-circle"></i>
+                                    Özellik 2</li>
+                                <li>
+                                    <i class="fas fa-check-circle"></i>
+                                    Özellik 3</li>
+                            </ul>
+                        </section>
+
+                        <section class="detail-section">
+                            <h2>
+                                <i class="fas fa-map"></i>
+                                Mekan Bilgileri</h2>
+                            <div class="venue-info">
+                                <div class="venue-card">
+                                    <h3 id="venueName">Mekan Adı</h3>
+                                    <p id="venueAddress">Adres bilgisi burada yer alacak.</p>
+                                    <div class="venue-facilities">
+                                        <span>
+                                            <i class="fas fa-parking"></i>
+                                            Otopark</span>
+                                        <span>
+                                            <i class="fas fa-wheelchair"></i>
+                                            Engelli Erişimi</span>
+                                        <span>
+                                            <i class="fas fa-utensils"></i>
+                                            Yiyecek & İçecek</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <section class="detail-section">
+                            <h2>
+                                <i class="fas fa-exclamation-triangle"></i>
+                                Önemli Bilgiler</h2>
+                            <div class="important-notes">
+                                <div class="note-item">
+                                    <i class="fas fa-clock"></i>
+                                    <div>
+                                        <strong>Kapı Açılış Saati</strong>
+                                        <p id="doorTime">Etkinlikten 1 saat önce</p>
+                                    </div>
+                                </div>
+                                <div class="note-item">
+                                    <i class="fas fa-user-check"></i>
+                                    <div>
+                                        <strong>Yaş Sınırı</strong>
+                                        <p id="ageLimit">Tüm yaşlara uygundur</p>
+                                    </div>
+                                </div>
+                                <div class="note-item">
+                                    <i class="fas fa-ban"></i>
+                                    <div>
+                                        <strong>Yasak Maddeler</strong>
+                                        <p>Profesyonel kamera, yiyecek-içecek</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+
+                    <!-- Right Column - Ticket Purchase -->
+                    <div class="ticket-purchase-card">
+                        <div class="ticket-card-header">
+                            <h3>🎫 Bilet Al</h3>
+                        </div>
+                        <div class="ticket-card-body">
+                            <div class="price-info">
+                                <span class="price-label">Fiyat aralığı</span>
+                                <span class="price-range" id="priceRange">₺250 - ₺1500</span>
+                            </div>
+
+                            <div class="ticket-types">
+                                <h4>Bilet Türleri</h4>
+                                <div class="ticket-type" data-price="250">
+                                    <div class="ticket-type-info">
+                                        <span class="ticket-type-name">Standart</span>
+                                        <span class="ticket-type-desc">Genel giriş</span>
+                                    </div>
+                                    <span class="ticket-type-price">₺250</span>
+                                </div>
+                                <div class="ticket-type" data-price="500">
+                                    <div class="ticket-type-info">
+                                        <span class="ticket-type-name">VIP</span>
+                                        <span class="ticket-type-desc">Ön sıralar + İçecek</span>
+                                    </div>
+                                    <span class="ticket-type-price">₺500</span>
+                                </div>
+                                <div class="ticket-type" data-price="1500">
+                                    <div class="ticket-type-info">
+                                        <span class="ticket-type-name">Premium</span>
+                                        <span class="ticket-type-desc">Meet & Greet + Hediye</span>
+                                    </div>
+                                    <span class="ticket-type-price">₺1500</span>
+                                </div>
+                            </div>
+
+                            <div class="availability-info">
+                                <div class="availability-bar">
+                                    <div class="availability-fill" style="width: 65%"></div>
+                                </div>
+                                <span class="availability-text">%35 doluluk - Son biletler!</span>
+                            </div>
+
+                            <a href="seat-selection.html" class="btn btn-primary btn-block">
+                                <i class="fas fa-ticket-alt"></i>
+                                Bilet Seç
+                            </a>
+
+                            <div class="guarantee-info">
+                                <div class="guarantee-item">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>Güvenli Ödeme</span>
+                                </div>
+                                <div class="guarantee-item">
+                                    <i class="fas fa-undo"></i>
+                                    <span>Kolay İade</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Similar Events -->
+                <section class="similar-events">
+                    <h2>🎭 Benzer Etkinlikler</h2>
+                    <div
+                        class="similar-events-grid" id="similarEvents"><!-- Will be populated by JavaScript -->
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>KolayBilet</h3>
+                        <p>Türkiye'nin en kolay etkinlik ve biletleme platformu</p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Hızlı Linkler</h4>
+                        <a href="#">Hakkımızda</a>
+                        <a href="#">İletişim</a>
+                        <a href="#">Yardım</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Sosyal Medya</h4>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/kutay-taha-karata%C5%9F-9b87a8386/" target="_blank">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/kutaytahakaratas" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.instagram.com/kutaytahakaratas/" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Kutay Taha Karataş. Tüm hakları saklıdır.</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Custom JS -->
+        <script src="js/event-detail.js"></script>
+    </body>
+</html>

@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="tr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Modern etkinlik ve biletleme platformu - Konser, tiyatro, spor etkinlikleri">
+        <title>KolayBilet - Etkinlik ve Biletleme</title>
+
+        <!-- Swiper CSS -->
+        <link
+        rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+        <!-- Font Awesome -->
+        <link
+        rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="logo">
+                        <i class="fas fa-ticket-alt"></i>
+                        <span>KolayBilet</span>
+                    </div>
+                    <nav class="nav" id="nav">
+                        <a href="index.html" class="nav-link active">Ana Sayfa</a>
+                        <a href="index.html#events" class="nav-link">Etkinlikler</a>
+                        <a href="index.html#categories" class="nav-link">Kategoriler</a>
+                        <a href="profile.html" class="nav-link">Profilim</a>
+                    </nav>
+                    <button class="mobile-toggle" id="mobileToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section
+            class="hero">
+            <!-- Background Slider -->
+            <div class="hero-bg-slider">
+                <div class="hero-bg-slide active" style="background-image: url('https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=1920');"></div>
+                <div class="hero-bg-slide" style="background-image: url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=1920');"></div>
+                <div class="hero-bg-slide" style="background-image: url('https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=1920');"></div>
+                <div class="hero-bg-slide" style="background-image: url('https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=1920');"></div>
+                <div class="hero-bg-slide" style="background-image: url('https://images.unsplash.com/photo-1506157786151-b8491531f063?w=1920');"></div>
+            </div>
+            <div class="hero-overlay"></div>
+
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Hayalindeki Etkinlik Bir Tık Uzağında</h1>
+                    <p class="hero-subtitle">Konser, tiyatro, spor ve daha fazlası için biletini hemen al!</p>
+
+                    <!-- Search Bar -->
+                    <div class="search-bar">
+                        <div class="search-input-wrapper">
+                            <i class="fas fa-search"></i>
+                            <input
+                            type="text" placeholder="Etkinlik, sanatçı veya mekan ara..." id="searchInput" autocomplete="off">
+                            <!-- Search Results Dropdown -->
+                            <div class="search-dropdown" id="searchDropdown">
+                                <div class="search-loading" id="searchLoading">
+                                    <i class="fas fa-spinner fa-spin"></i>
+                                    <span>Aranıyor...</span>
+                                </div>
+                                <div class="search-results" id="searchResults"></div>
+                                <div class="search-no-results" id="noResults">
+                                    <i class="fas fa-search"></i>
+                                    <span>Sonuç bulunamadı</span>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" id="searchBtn">Ara</button>
+                    </div>
+
+                    <!-- Quick Stats -->
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Etkinlik</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="stat-number">50K+</span>
+                            <span class="stat-label">Mutlu Müşteri</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="stat-number">100+</span>
+                            <span class="stat-label">Mekan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side Image Carousel -->
+                <div class="hero-carousel">
+                    <div class="carousel-track">
+                        <a href="category.html?cat=konser" class="carousel-item">
+                            <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400" alt="Konser">
+                            <div class="carousel-overlay">
+                                <span class="carousel-badge">🔥 Popüler</span>
+                                <h4>Canlı Konserler</h4>
+                            </div>
+                        </a>
+                        <a href="category.html?cat=tiyatro" class="carousel-item">
+                            <img src="https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=400" alt="Tiyatro">
+                            <div class="carousel-overlay">
+                                <span class="carousel-badge">🎭 Tiyatro</span>
+                                <h4>Sahne Sanatları</h4>
+                            </div>
+                        </a>
+                        <a href="category.html?cat=spor" class="carousel-item">
+                            <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=400" alt="Spor">
+                            <div class="carousel-overlay">
+                                <span class="carousel-badge">⚽ Spor</span>
+                                <h4>Büyük Maçlar</h4>
+                            </div>
+                        </a>
+                        <a href="category.html?cat=festival" class="carousel-item">
+                            <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=400" alt="Festival">
+                            <div class="carousel-overlay">
+                                <span class="carousel-badge">🎉 Festival</span>
+                                <h4>Açık Hava</h4>
+                            </div>
+                        </a>
+                        <a href="category.html?cat=standup" class="carousel-item">
+                            <img src="https://images.unsplash.com/photo-1585699324551-f6c309eedeca?w=400" alt="Stand-up">
+                            <div class="carousel-overlay">
+                                <span class="carousel-badge">😂 Komedi</span>
+                                <h4>Stand-up Gösterileri</h4>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Upcoming Events Slider -->
+        <section class="section" id="events">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">🎭 Yakındaki Etkinlikler</h2>
+                    <a href="#" class="view-all">Tümünü Gör
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Date Strip -->
+                <div class="date-strip" id="dateStrip">
+                    <button class="date-nav-btn prev" id="datePrev">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="date-strip-container">
+                        <div
+                            class="date-strip-track" id="dateTrack"><!-- Dates will be generated by JavaScript -->
+                        </div>
+                    </div>
+                    <button class="date-nav-btn next" id="dateNext">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+
+                <!-- Selected Date Info -->
+                <div class="selected-date-info" id="selectedDateInfo">
+                    <i class="far fa-calendar-check"></i>
+                    <span id="selectedDateText">Bugün</span>
+                    <span class="event-count" id="eventCount">12 etkinlik</span>
+                </div>
+
+                <div class="swiper events-slider">
+                    <div
+                        class="swiper-wrapper">
+                        <!-- Event Card 1 - Tarkan -->
+                        <div class="swiper-slide">
+                            <a href="event-detail.html?id=1" class="event-card">
+                                <div class="event-image">
+                                    <img src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400" alt="Konser">
+                                    <div class="event-badge hot">🔥 Çok Popüler</div>
+                                </div>
+                                <div class="event-content">
+                                    <div class="event-category">
+                                        <i class="fas fa-music"></i>
+                                        Konser
+                                    </div>
+                                    <h3 class="event-title">Tarkan - Yeni Albüm Turnesi 2025</h3>
+                                    <div class="event-info">
+                                        <div class="event-date">
+                                            <i class="far fa-calendar"></i>
+                                            15 Ocak 2025
+                                        </div>
+                                        <div class="event-location">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            İstanbul - Volkswagen Arena
+                                        </div>
+                                    </div>
+                                    <div class="event-footer">
+                                        <div class="event-price">₺750'den başlayan</div>
+                                        <span class="btn btn-primary btn-sm">Detaylar</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Event Card 2 - Müslüm Baba Müzikali -->
+                        <div class="swiper-slide">
+                            <a href="event-detail.html?id=2" class="event-card">
+                                <div class="event-image">
+                                    <img src="https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=400" alt="Müzikal">
+                                    <div class="event-badge">⭐ Gişe Rekoru</div>
+                                </div>
+                                <div class="event-content">
+                                    <div class="event-category">
+                                        <i class="fas fa-theater-masks"></i>
+                                        Müzikal
+                                    </div>
+                                    <h3 class="event-title">Müslüm Baba Müzikali</h3>
+                                    <div class="event-info">
+                                        <div class="event-date">
+                                            <i class="far fa-calendar"></i>
+                                            22 Aralık 2025
+                                        </div>
+                                        <div class="event-location">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            Ankara - CSO Ada
+                                        </div>
+                                    </div>
+                                    <div class="event-footer">
+                                        <div class="event-price">₺400'den başlayan</div>
+                                        <span class="btn btn-primary btn-sm">Detaylar</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Event Card 3 - TechFest -->
+                        <div class="swiper-slide">
+                            <a href="event-detail.html?id=3" class="event-card">
+                                <div class="event-image">
+                                    <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400" alt="Festival">
+                                    <div class="event-badge">🚀 Yeni</div>
+                                </div>
+                                <div class="event-content">
+                                    <div class="event-category">
+                                        <i class="fas fa-laptop-code"></i>
+                                        Teknoloji
+                                    </div>
+                                    <h3 class="event-title">TechFest İstanbul 2025</h3>
+                                    <div class="event-info">
+                                        <div class="event-date">
+                                            <i class="far fa-calendar"></i>
+                                            10-12 Ocak 2025
+                                        </div>
+                                        <div class="event-location">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            İstanbul - Lütfi Kırdar
+                                        </div>
+                                    </div>
+                                    <div class="event-footer">
+                                        <div class="event-price">₺250'den başlayan</div>
+                                        <span class="btn btn-primary btn-sm">Detaylar</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Event Card 4 - Basketbol -->
+                        <div class="swiper-slide">
+                            <a href="event-detail.html?id=4" class="event-card">
+                                <div class="event-image">
+                                    <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?w=400" alt="Basketbol">
+                                    <div class="event-badge hot">🏀 Derbi</div>
+                                </div>
+                                <div class="event-content">
+                                    <div class="event-category">
+                                        <i class="fas fa-basketball-ball"></i>
+                                        Basketbol
+                                    </div>
+                                    <h3 class="event-title">Fenerbahçe vs Anadolu Efes</h3>
+                                    <div class="event-info">
+                                        <div class="event-date">
+                                            <i class="far fa-calendar"></i>
+                                            28 Aralık 2025
+                                        </div>
+                                        <div class="event-location">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            İstanbul - Ülker Spor Arena
+                                        </div>
+                                    </div>
+                                    <div class="event-footer">
+                                        <div class="event-price">₺300'den başlayan</div>
+                                        <span class="btn btn-primary btn-sm">Detaylar</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Event Card 5 - Opera -->
+                        <div class="swiper-slide">
+                            <a href="event-detail.html?id=5" class="event-card">
+                                <div class="event-image">
+                                    <img src="https://images.unsplash.com/photo-1580809361436-42a7ec204889?w=400" alt="Opera">
+                                    <div class="event-badge">🎭 Klasik</div>
+                                </div>
+                                <div class="event-content">
+                                    <div class="event-category">
+                                        <i class="fas fa-music"></i>
+                                        Opera
+                                    </div>
+                                    <h3 class="event-title">Carmen - İstanbul Operası</h3>
+                                    <div class="event-info">
+                                        <div class="event-date">
+                                            <i class="far fa-calendar"></i>
+                                            5 Ocak 2025
+                                        </div>
+                                        <div class="event-location">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            İstanbul - Zorlu PSM
+                                        </div>
+                                    </div>
+                                    <div class="event-footer">
+                                        <div class="event-price">₺600'den başlayan</div>
+                                        <span class="btn btn-primary btn-sm">Detaylar</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Event Card 6 - DJ Party -->
+                        <div class="swiper-slide">
+                            <a href="event-detail.html?id=6" class="event-card">
+                                <div class="event-image">
+                                    <img src="https://images.unsplash.com/photo-1571266028243-e4733b0f0bb0?w=400" alt="DJ">
+                                    <div class="event-badge hot">💥 Son Biletler</div>
+                                </div>
+                                <div class="event-content">
+                                    <div class="event-category">
+                                        <i class="fas fa-headphones"></i>
+                                        Elektronik
+                                    </div>
+                                    <h3 class="event-title">David Guetta - Yılbaşı 2026</h3>
+                                    <div class="event-info">
+                                        <div class="event-date">
+                                            <i class="far fa-calendar"></i>
+                                            31 Aralık 2025
+                                        </div>
+                                        <div class="event-location">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            Antalya - Regnum
+                                        </div>
+                                    </div>
+                                    <div class="event-footer">
+                                        <div class="event-price">₺1500'den başlayan</div>
+                                        <span class="btn btn-primary btn-sm">Detaylar</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Event Card 7 - Sagopa -->
+                        <div class="swiper-slide">
+                            <a href="event-detail.html?id=7" class="event-card">
+                                <div class="event-image">
+                                    <img src="https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=400" alt="Rap">
+                                    <div class="event-badge">🎤 Rap</div>
+                                </div>
+                                <div class="event-content">
+                                    <div class="event-category">
+                                        <i class="fas fa-music"></i>
+                                        Konser
+                                    </div>
+                                    <h3 class="event-title">Sagopa Kajmer - Son Şarkılar</h3>
+                                    <div class="event-info">
+                                        <div class="event-date">
+                                            <i class="far fa-calendar"></i>
+                                            20 Şubat 2025
+                                        </div>
+                                        <div class="event-location">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            İstanbul - Harbiye Açıkhava
+                                        </div>
+                                    </div>
+                                    <div class="event-footer">
+                                        <div class="event-price">₺500'den başlayan</div>
+                                        <span class="btn btn-primary btn-sm">Detaylar</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Event Card 8 - Coffee Festival -->
+                        <div class="swiper-slide">
+                            <a href="event-detail.html?id=8" class="event-card">
+                                <div class="event-image">
+                                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400" alt="Festival">
+                                    <div class="event-badge">☕ Festival</div>
+                                </div>
+                                <div class="event-content">
+                                    <div class="event-category">
+                                        <i class="fas fa-coffee"></i>
+                                        Festival
+                                    </div>
+                                    <h3 class="event-title">İstanbul Coffee Festival 2025</h3>
+                                    <div class="event-info">
+                                        <div class="event-date">
+                                            <i class="far fa-calendar"></i>
+                                            15-17 Mart 2025
+                                        </div>
+                                        <div class="event-location">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            İstanbul - KüçükÇiftlik Park
+                                        </div>
+                                    </div>
+                                    <div class="event-footer">
+                                        <div class="event-price">₺150'den başlayan</div>
+                                        <span class="btn btn-primary btn-sm">Detaylar</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Event Card 9 - GS vs BJK -->
+                        <div class="swiper-slide">
+                            <a href="event-detail.html?id=9" class="event-card">
+                                <div class="event-image">
+                                    <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=400" alt="Futbol">
+                                    <div class="event-badge hot">⚽ Derbi</div>
+                                </div>
+                                <div class="event-content">
+                                    <div class="event-category">
+                                        <i class="fas fa-futbol"></i>
+                                        Futbol
+                                    </div>
+                                    <h3 class="event-title">Galatasaray vs Beşiktaş</h3>
+                                    <div class="event-info">
+                                        <div class="event-date">
+                                            <i class="far fa-calendar"></i>
+                                            5 Nisan 2025
+                                        </div>
+                                        <div class="event-location">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            İstanbul - RAMS Park
+                                        </div>
+                                    </div>
+                                    <div class="event-footer">
+                                        <div class="event-price">₺500'den başlayan</div>
+                                        <span class="btn btn-primary btn-sm">Detaylar</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Event Card 10 - Cem Yılmaz -->
+                        <div class="swiper-slide">
+                            <a href="event-detail.html?id=10" class="event-card">
+                                <div class="event-image">
+                                    <img src="https://images.unsplash.com/photo-1585699324551-f6c309eedeca?w=400" alt="Stand-up">
+                                    <div class="event-badge">😂 Komedi</div>
+                                </div>
+                                <div class="event-content">
+                                    <div class="event-category">
+                                        <i class="fas fa-laugh"></i>
+                                        Stand-up
+                                    </div>
+                                    <h3 class="event-title">Cem Yılmaz - Diamond Elite Plus</h3>
+                                    <div class="event-info">
+                                        <div class="event-date">
+                                            <i class="far fa-calendar"></i>
+                                            28 Şubat 2025
+                                        </div>
+                                        <div class="event-location">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            İstanbul - Volkswagen Arena
+                                        </div>
+                                    </div>
+                                    <div class="event-footer">
+                                        <div class="event-price">₺600'den başlayan</div>
+                                        <span class="btn btn-primary btn-sm">Detaylar</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Event Card 11 - Van Gogh -->
+                        <div class="swiper-slide">
+                            <a href="event-detail.html?id=11" class="event-card">
+                                <div class="event-image">
+                                    <img src="https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=400" alt="Sergi">
+                                    <div class="event-badge">🎨 Sanat</div>
+                                </div>
+                                <div class="event-content">
+                                    <div class="event-category">
+                                        <i class="fas fa-paint-brush"></i>
+                                        Sergi
+                                    </div>
+                                    <h3 class="event-title">Van Gogh Immersive Sergi</h3>
+                                    <div class="event-info">
+                                        <div class="event-date">
+                                            <i class="far fa-calendar"></i>
+                                            Ocak - Haziran 2025
+                                        </div>
+                                        <div class="event-location">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            İstanbul - Pera Müzesi
+                                        </div>
+                                    </div>
+                                    <div class="event-footer">
+                                        <div class="event-price">₺200'den başlayan</div>
+                                        <span class="btn btn-primary btn-sm">Detaylar</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Event Card 12 - Sertab -->
+                        <div class="swiper-slide">
+                            <a href="event-detail.html?id=12" class="event-card">
+                                <div class="event-image">
+                                    <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=400" alt="Konser">
+                                    <div class="event-badge">💕 Sevgililer Günü</div>
+                                </div>
+                                <div class="event-content">
+                                    <div class="event-category">
+                                        <i class="fas fa-music"></i>
+                                        Konser
+                                    </div>
+                                    <h3 class="event-title">Sertab Erener - Evgit Gel</h3>
+                                    <div class="event-info">
+                                        <div class="event-date">
+                                            <i class="far fa-calendar"></i>
+                                            14 Şubat 2025
+                                        </div>
+                                        <div class="event-location">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            İzmir - İzmir Arena
+                                        </div>
+                                    </div>
+                                    <div class="event-footer">
+                                        <div class="event-price">₺450'den başlayan</div>
+                                        <span class="btn btn-primary btn-sm">Detaylar</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </body>
+    </body>
+</html></section><!-- Popular Categories --><section class="section" id="categories">
+<div class="container">
+    <div class="section-header">
+        <h2 class="section-title">🎨 Popüler Kategoriler</h2>
+    </div>
+
+    <div
+        class="bento-grid">
+        <!-- Büyük Kart - Konser (Sol, 2 satır) -->
+        <a href="category.html?cat=konser" class="bento-card bento-large" style="background-image: url('https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=600');">
+            <div class="bento-overlay"></div>
+            <div class="bento-content">
+                <div class="bento-icon">
+                    <i class="fas fa-music"></i>
+                </div>
+                <h3>Konser</h3>
+                <p>250+ Etkinlik</p>
+                <span class="bento-badge">🔥 En Popüler</span>
+            </div>
+        </a>
+
+        <!-- Orta Kart - Tiyatro (Sağ üst sol) -->
+        <a href="category.html?cat=tiyatro" class="bento-card bento-medium" style="background-image: url('https://images.unsplash.com/photo-1503095396549-807759245b35?w=400');">
+            <div class="bento-overlay"></div>
+            <div class="bento-content">
+                <div class="bento-icon">
+                    <i class="fas fa-theater-masks"></i>
+                </div>
+                <h3>Tiyatro</h3>
+                <p>180+ Etkinlik</p>
+            </div>
+        </a>
+
+        <!-- Küçük Kart - Stand-up (Sağ üst sağ) -->
+        <a href="category.html?cat=standup" class="bento-card bento-small" style="background-image: url('https://images.unsplash.com/photo-1527224857830-43a7acc85260?w=400');">
+            <div class="bento-overlay"></div>
+            <div class="bento-content">
+                <div class="bento-icon">
+                    <i class="fas fa-laugh"></i>
+                </div>
+                <h3>Stand-up</h3>
+                <p>95+ Etkinlik</p>
+            </div>
+        </a>
+
+        <!-- Geniş Kart - Spor (Sağ alt, 2 sütun) -->
+        <a href="category.html?cat=spor" class="bento-card bento-wide" style="background-image: url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600');">
+            <div class="bento-overlay"></div>
+            <div class="bento-content">
+                <div class="bento-icon">
+                    <i class="fas fa-futbol"></i>
+                </div>
+                <h3>Spor</h3>
+                <p>120+ Etkinlik</p>
+                <span class="bento-badge">⚽ Derbi Haftası</span>
+            </div>
+        </a>
+    </div>
+
+</div></section><!-- Footer --><footer class="footer">
+<div class="container">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>KolayBilet</h3>
+            <p>Türkiye'nin en kolay etkinlik ve biletleme platformu</p>
+        </div>
+        <div class="footer-section">
+            <h4>Hızlı Linkler</h4>
+            <a href="#">Hakkımızda</a>
+            <a href="#">İletişim</a>
+            <a href="#">Yardım</a>
+        </div>
+        <div class="footer-section">
+            <h4>Sosyal Medya</h4>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/kutay-taha-karata%C5%9F-9b87a8386/" target="_blank">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/kutaytahakaratas" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.instagram.com/kutaytahakaratas/" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 Kutay Taha Karataş. Tüm hakları saklıdır.</p>
+    </div>
+</div></footer><!-- Swiper JS --><script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script><!-- Custom JS --><script src="js/main.js"></script></body></html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="tr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Kategori Etkinlikleri - KolayBilet">
+        <title>Kategori Etkinlikleri - KolayBilet</title>
+
+        <!-- Font Awesome -->
+        <link
+        rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="css/style.css">
+        <style>
+            /* Category Page Specific Styles */
+            .category-hero {
+                background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(255, 71, 87, 0.05));
+                padding: var(--space-2xl) 0;
+                margin-top: 80px;
+                border-bottom: 2px solid rgba(255, 107, 53, 0.2);
+            }
+
+            .category-hero-content {
+                text-align: center;
+            }
+
+            .category-icon-large {
+                width: 100px;
+                height: 100px;
+                background: linear-gradient(135deg, var(--color-primary), var(--color-tertiary));
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto var(--space-lg);
+                font-size: 2.5rem;
+                color: white;
+                box-shadow: var(--shadow-fire);
+            }
+
+            .category-title {
+                font-size: 2.5rem;
+                font-weight: 900;
+                margin-bottom: var(--space-sm);
+                background: linear-gradient(135deg, var(--color-primary), var(--color-tertiary));
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+
+            .category-subtitle {
+                color: var(--color-text-secondary);
+                font-size: 1.1rem;
+            }
+
+            .category-event-count {
+                display: inline-block;
+                background: var(--color-primary);
+                color: white;
+                padding: 8px 20px;
+                border-radius: var(--radius-xl);
+                font-weight: 600;
+                margin-top: var(--space-md);
+            }
+
+            .events-section {
+                padding: var(--space-2xl) 0;
+            }
+
+            .events-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: var(--space-lg);
+            }
+
+            .back-link {
+                display: inline-flex;
+                align-items: center;
+                gap: var(--space-sm);
+                color: var(--color-primary);
+                text-decoration: none;
+                font-weight: 600;
+                margin-bottom: var(--space-lg);
+                transition: all var(--transition-base);
+            }
+
+            .back-link:hover {
+                gap: var(--space-md);
+            }
+
+            .no-events-card {
+                grid-column: 1 / -1;
+                text-align: center;
+                padding: var(--space-2xl);
+                background: var(--color-bg-card);
+                border-radius: var(--radius-lg);
+                border: 2px dashed rgba(255, 107, 53, 0.3);
+            }
+
+            .no-events-card i {
+                font-size: 4rem;
+                color: var(--color-primary);
+                opacity: 0.5;
+                margin-bottom: var(--space-md);
+            }
+
+            .no-events-card h3 {
+                margin-bottom: var(--space-sm);
+            }
+
+            .no-events-card p {
+                color: var(--color-text-muted);
+            }
+
+            /* Event Card Styles */
+            .category-event-card {
+                background: var(--color-bg-card);
+                border: 1px solid rgba(0, 0, 0, 0.08);
+                border-radius: var(--radius-lg);
+                overflow: hidden;
+                transition: all var(--transition-base);
+                display: flex;
+                flex-direction: column;
+                text-decoration: none;
+                color: inherit;
+            }
+
+            .category-event-card:hover {
+                transform: translateY(-8px);
+                box-shadow: var(--shadow-fire);
+                border-color: var(--color-primary-light);
+            }
+
+            .category-event-image {
+                position: relative;
+                height: 180px;
+                overflow: hidden;
+            }
+
+            .category-event-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform var(--transition-slow);
+            }
+
+            .category-event-card:hover .category-event-image img {
+                transform: scale(1.1);
+            }
+
+            .category-event-badge {
+                position: absolute;
+                top: var(--space-sm);
+                right: var(--space-sm);
+                padding: 6px 12px;
+                background: var(--color-primary);
+                color: white;
+                border-radius: var(--radius-sm);
+                font-size: 0.75rem;
+                font-weight: 600;
+            }
+
+            .category-event-content {
+                padding: var(--space-md);
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .category-event-title {
+                font-size: 1.1rem;
+                font-weight: 700;
+                margin-bottom: var(--space-sm);
+                line-height: 1.4;
+            }
+
+            .category-event-info {
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+                color: var(--color-text-secondary);
+                font-size: 0.875rem;
+                margin-bottom: var(--space-md);
+            }
+
+            .category-event-info span {
+                display: flex;
+                align-items: center;
+                gap: var(--space-xs);
+            }
+
+            .category-event-info i {
+                color: var(--color-primary);
+                width: 16px;
+            }
+
+            .category-event-footer {
+                margin-top: auto;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding-top: var(--space-md);
+                border-top: 1px solid rgba(0, 0, 0, 0.05);
+            }
+
+            .category-event-price {
+                font-size: 1rem;
+                font-weight: 700;
+                color: var(--color-primary);
+            }
+
+            .category-event-btn {
+                padding: 8px 16px;
+                background: linear-gradient(135deg, var(--color-primary), var(--color-tertiary));
+                color: white;
+                border: none;
+                border-radius: var(--radius-md);
+                font-size: 0.875rem;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all var(--transition-base);
+            }
+
+            .category-event-btn:hover {
+                transform: scale(1.05);
+                box-shadow: var(--shadow-glow);
+            }
+
+            /* Responsive */
+            @media(max-width: 768px) {
+                .category-title {
+                    font-size: 1.8rem;
+                }
+
+                .category-icon-large {
+                    width: 80px;
+                    height: 80px;
+                    font-size: 2rem;
+                }
+
+                .events-grid {
+                    grid-template-columns: 1fr;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Header -->
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <a href="index.html" class="logo">
+                        <i class="fas fa-ticket-alt"></i>
+                        <span>KolayBilet</span>
+                    </a>
+                    <nav class="nav" id="nav">
+                        <a href="index.html" class="nav-link">Ana Sayfa</a>
+                        <a href="index.html#events" class="nav-link">Etkinlikler</a>
+                        <a href="index.html#categories" class="nav-link active">Kategoriler</a>
+                        <a href="profile.html" class="nav-link">Profilim</a>
+                    </nav>
+                    <button class="mobile-toggle" id="mobileToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Category Hero -->
+        <section class="category-hero">
+            <div class="container">
+                <div class="category-hero-content">
+                    <div class="category-icon-large" id="categoryIcon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h1 class="category-title" id="categoryTitle">Kategori</h1>
+                    <p class="category-subtitle" id="categorySubtitle">Bu kategorideki tüm etkinlikleri keşfedin</p>
+                    <span class="category-event-count" id="eventCount">0 Etkinlik</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Section -->
+        <section class="events-section">
+            <div class="container">
+                <a href="index.html#categories" class="back-link">
+                    <i class="fas fa-arrow-left"></i>
+                    Kategorilere Dön
+                </a>
+
+                <div
+                    class="events-grid" id="eventsGrid"><!-- Events will be loaded here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <h3>KolayBilet</h3>
+                        <p>Türkiye'nin en kolay etkinlik ve biletleme platformu</p>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Hızlı Linkler</h4>
+                        <a href="#">Hakkımızda</a>
+                        <a href="#">İletişim</a>
+                        <a href="#">Yardım</a>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Sosyal Medya</h4>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/kutay-taha-karata%C5%9F-9b87a8386/" target="_blank">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="https://github.com/kutaytahakaratas" target="_blank">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.instagram.com/kutaytahakaratas/" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 Kutay Taha Karataş. Tüm hakları saklıdır.</p>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Category Page JavaScript -->
+        <script src="js/category.js"></script>
+    </body>
+</html>
