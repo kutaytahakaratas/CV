@@ -730,3 +730,14 @@ function loadSimilarEvents(currentEvent) {
 
 // Initialize
 document.addEventListener('DOMContentLoaded', loadEventDetails);
+ 
+ / /   = = = = = =   M O B I L E   M E N U   T O G G L E   = = = = = =  
+ c o n s t   m o b i l e T o g g l e   =   d o c u m e n t . g e t E l e m e n t B y I d ( ' m o b i l e T o g g l e ' ) ;  
+ c o n s t   n a v   =   d o c u m e n t . g e t E l e m e n t B y I d ( ' n a v ' ) ;  
+  
+ i f   ( m o b i l e T o g g l e )   {  
+         m o b i l e T o g g l e . a d d E v e n t L i s t e n e r ( ' c l i c k ' ,   ( )   = >   {  
+                 n a v . c l a s s L i s t . t o g g l e ( ' a c t i v e ' ) ;  
+         } ) ;  
+ }  
+ 
