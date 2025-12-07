@@ -621,27 +621,201 @@ function createDynamicEvent(id) {
     return createEventFromLocalData(id, name, null, "Türkiye", "₺400", null, category);
 }
 
-// Load event details
-function loadEventDetails() {
-    const eventId = getEventIdFromUrl();
-    const event = getEventById(eventId);
-
-    // Debug log
-    console.log('🎫 Yüklenen etkinlik ID:', eventId, '- Başlık:', event.title);
-
-    // Update hero section
-    document.getElementById('eventImage').src = event.image;
-    document.getElementById('eventImage').alt = event.title;
-    document.getElementById('eventTitle').textContent = event.title;
-    document.getElementById('eventDate').textContent = event.date;
-    document.getElementById('eventLocation').textContent = event.location;
-    document.getElementById('eventTime').textContent = event.time;
+    document.getElementById('eventDescription').textContent = event.description;
     
-    // Update category badge
-    const categoryBadge = document.getElementById('eventCategory');
-    categoryBadge.innerHTML = `<i class="${event.categoryIcon}"></i> ${event.category}`;
+    // Update features
+    const featuresList = document.getElementById('eventFeatures');
+    featuresList.innerHTML = event.features.map(f => 
+        `<li><i class="fas fa-check-circle"></i> ${f}</li>`
+    ).join('');
 
-    // Update details
+    // Update venue
+    document.getElementById('venueName').textContent = event.location.split(' - ')[1] || event.location;
+    document.getElementById('venueAddress').textContent = event.address;
+
+    // Update important notes
+    document.getElementById('doorTime').textContent = event.doorTime;
+    document.getElementById('ageLimit').textContent = event.ageLimit;
+
+    // Update price range
+    document.getElementById('priceRange').textContent = `₺${event.priceMin} - ₺${event.priceMax}`;
+
+    // Update availability
+    const availabilityFill = document.querySelector('.availability-fill');
+    const availabilityText = document.querySelector('.availability-text');
+    const usedPercentage = 100 - event.availability;
+    availabilityFill.style.width = usedPercentage + '%';
+    
+    if (event.availability <= 20) {
+        availabilityText.textContent = `%${usedPercentage} doluluk - Son biletler!`;
+        availabilityText.style.color = 'var(--color-danger)';
+    } else if (event.availability <= 40) {
+        availabilityText.textContent = `%${usedPercentage} doluluk - Biletler tükeniyor!`;
+        availabilityText.style.color = 'var(--color-warning)';
+    } else {
+        availabilityText.textContent = `%${usedPercentage} doluluk - Biletler mevcut`;
+        availabilityText.style.color = 'var(--color-success)';
+    }
+
+    // Load similar events
+    loadSimilarEvents(event);
+}
+
+// Load similar events
+function loadSimilarEvents(currentEvent) {
+    const similarEvents = eventsData
+        .filter(e => e.id !== currentEvent.id && e.category === currentEvent.category)
+        .slice(0, 3);
+
+    // If not enough similar events, add random ones
+    if (similarEvents.length < 3) {
+        const otherEvents = eventsData
+            .filter(e => e.id !== currentEvent.id && !similarEvents.includes(e))
+            .slice(0, 3 - similarEvents.length);
+        similarEvents.push(...otherEvents);
+    }
+
+    const container = document.getElementById('similarEvents');
+    container.innerHTML = similarEvents.map(event => `
+        <a href="event-detail.html?id=${event.id}" class="event-card">
+            <div class="event-image">
+                <img src="${event.image}" alt="${event.title}">
+                <div class="event-badge ${event.badgeType}">${event.badge}</div>
+            </div>
+            <div class="event-content">
+                <div class="event-category">
+                    <i class="${event.categoryIcon}"></i>
+                    ${event.category}
+                </div>
+                <h3 class="event-title">${event.title}</h3>
+                <div class="event-info">
+                    <div class="event-date">
+                        <i class="far fa-calendar"></i>
+                        ${event.date}
+                    </div>
+                    <div class="event-location">
+                        <i class="fas fa-map-marker-alt"></i>
+                        ${event.location}
+                    </div>
+                </div>
+                <div class="event-footer">
+                    <div class="event-price">₺${event.priceMin}'den başlayan</div>
+                    <span class="btn btn-primary btn-sm">Detaylar</span>
+                </div>
+            </div>
+        </a>
+    `).join('');
+}
+        71: { name: "Notre Dame'ın Kamburu", category: "Tiyatro", venue: "İstanbul - Maximum Uniq", date: "2025-12-15", price: "₺500", image: "https://images.unsplash.com/photo-1580809361436-42a7ec204889?w=800",
+            time: "20:00", badge: "🎶 Müzikal", description: "Victor Hugo'nun başyapıtı Broadway müzikali olarak!",
+            features: ["Broadway prodüksiyonu", "Canlı orkestra", "Etkileyici dekor"],
+            doorTime: "Gösterimden 1 saat önce", ageLimit: "+10 yaş" },
+        72: { name: "Cats Broadway", category: "Tiyatro", venue: "İstanbul - Zorlu PSM", date: "2025-12-17", price: "₺600", image: "https://images.unsplash.com/photo-1594909122845-11baa439b7bf?w=800",
+            time: "20:30", badge: "⭐ Broadway", description: "Efsanevi Broadway müzikali Cats Türkiye'de!",
+            features: ["Orijinal koreografi", "Memory şarkısı", "Kostüm şovu"],
+            doorTime: "Gösterimden 1 saat önce", ageLimit: "Tüm yaşlar" },
+        
+        // ===== STAND-UP ETKİNLİKLERİ =====
+        88: { name: "Cem Yılmaz Diamond", category: "Stand-up", venue: "İstanbul - VW Arena", date: "2025-12-08", price: "₺600", image: "https://images.unsplash.com/photo-1585699324551-f6c309eedeca?w=800", // Microphone
+            time: "21:00", badge: "💎 Premium", description: "Türkiye'nin en sevilen komedyeni Cem Yılmaz, yepyeni 'Diamond' gösterisiyle sahnede! 3 saatlik kesintisiz kahkaha.",
+            features: ["Yeni materyaller", "Sürpriz konuklar", "After-show meet & greet", "Özel merchandise"],
+            doorTime: "Gösteriden 2 saat önce", ageLimit: "+16 yaş", warning: "⚠️ Gösteride küfürlü içerik bulunmaktadır." },
+        89: { name: "Ata Demirer Show", category: "Stand-up", venue: "Ankara - Congresium", date: "2025-12-12", price: "₺400", image: "https://images.unsplash.com/photo-1527224857830-43a7acc85260?w=800", // Stage/Artist
+            time: "20:30", badge: "😂 Efsane", description: "Ata Demirer'in efsane karakterleri ve taklitleriyle unutulmaz bir gece! Tüm aile için uygun.",
+            features: ["Klasik karakterler", "Müzikal performanslar", "Seyirci katılımı", "Fotoğraf çekimi"],
+            doorTime: "Gösteriden 1.5 saat önce", ageLimit: "+7 yaş" },
+        90: { name: "Güldür Güldür Show", category: "Stand-up", venue: "İstanbul - MEB", date: "2025-12-16", price: "₺250", image: "https://images.unsplash.com/photo-1478147427282-58a87a120781?w=800", // Theatre crowd/stage
+            time: "20:00", badge: "📺 TV Favorisi", description: "Televizyonun en sevilen komedi programı canlı sahnede! Tüm ekip bir arada.",
+            features: ["TV'den tanıdık sketçler", "Yeni sürpriz bölümler", "Ekip ile tanışma", "Selfie köşesi"],
+            doorTime: "Gösteriden 1 saat önce", ageLimit: "Tüm yaşlar" },
+        91: { name: "Şahan Gökbakar", category: "Stand-up", venue: "İzmir - Kültürpark", date: "2025-12-20", price: "₺450", image: "https://images.unsplash.com/photo-1585699324551-f6c309eedeca?w=800", // Microphone
+            time: "21:00", badge: "🎬 Recep İvedik", description: "Recep İvedik'in yaratıcısı Şahan Gökbakar canlı performansıyla İzmir'de! Sınırsız kahkaha garantili.",
+            features: ["Stand-up performansı", "Film anekdotları", "Seyirci soru-cevap", "İmza gecesi"],
+            doorTime: "Gösteriden 1.5 saat önce", ageLimit: "+12 yaş" },
+        92: { name: "Tolga Çevik Solo", category: "Stand-up", venue: "İstanbul - Zorlu PSM", date: "2025-12-24", price: "₺350", image: "https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=800", // Theatre empty stage
+            time: "20:00", badge: "🎄 Yılbaşı Özel", description: "Yılbaşı öncesi son kahkahalar! Tolga Çevik'in özel yılbaşı gösterisi.",
+            features: ["Yılbaşı temalı şakalar", "Sürpriz hediyeler", "Noel Baba skeçi", "After-party daveti"],
+            doorTime: "Gösteriden 1 saat önce", ageLimit: "+12 yaş" },
+        
+        // ===== FUTBOL ETKİNLİKLERİ =====
+        98: { name: "Galatasaray vs Fenerbahçe", category: "Futbol", venue: "İstanbul - RAMS Park", date: "2025-12-08", price: "₺800", image: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=800",
+            time: "20:00", badge: "🔥 Derbi", description: "Türkiye'nin en büyük derbisi! Aslan-Kanarya rekabeti RAMS Park'ta. 60.000 taraftar, eşsiz atmosfer.",
+            features: ["Kale arkası tribünü", "Maç programı hediye", "Fan zone etkinlikleri", "Özel güvenlik"],
+            doorTime: "Maçtan 3 saat önce", ageLimit: "+7 yaş", warning: "⚠️ Deplasman taraftarları giriş yapamaz. Kimlik kontrolü yapılacaktır." },
+        99: { name: "Fenerbahçe vs Beşiktaş", category: "Futbol", venue: "İstanbul - Kadıköy", date: "2025-12-12", price: "₺600", image: "https://images.unsplash.com/photo-1522778119026-d647f0596c20?w=800",
+            time: "19:00", badge: "⚽ Klasik", description: "Kadıköy'de dev derbi! Sarı-Lacivert tribünlerin coşkusu Şükrü Saracoğlu'nda.",
+            features: ["Tribün koreografisi", "Maç öncesi şov", "Stadyum turu imkanı", "Hatıra bileti"],
+            doorTime: "Maçtan 2.5 saat önce", ageLimit: "Tüm yaşlar", warning: "⚠️ Alkollü içecek yasaktır. Metro ile ulaşım önerilir." },
+        100: { name: "Beşiktaş vs Trabzonspor", category: "Futbol", venue: "İstanbul - Tüpraş", date: "2025-12-16", price: "₺500", image: "https://images.unsplash.com/photo-1489944440615-453fc2b6a9a9?w=800",
+            time: "20:30", badge: "🦅 Kartal", description: "Tüpraş Stadyumu'nda Karadeniz fırtınası! İki takım arasında kritik puan mücadelesi.",
+            features: ["Çarşı tribünü atmosferi", "Maç sonu oyuncu imza", "Beşiktaş Store indirimi"],
+            doorTime: "Maçtan 2 saat önce", ageLimit: "+12 yaş" },
+        101: { name: "Galatasaray vs Trabzonspor", category: "Futbol", venue: "İstanbul - RAMS Park", date: "2025-12-20", price: "₺550", image: "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=800",
+            time: "21:00", badge: "🏆 Şampiyonluk", description: "Şampiyonluk yarışının kritik maçı! Cimbom evinde 3 puan peşinde.",
+            features: ["Ultra tribün deneyimi", "Maç öncesi konser", "VIP park alanı"],
+            doorTime: "Maçtan 2 saat önce", ageLimit: "Tüm yaşlar" },
+        102: { name: "Fenerbahçe vs Galatasaray", category: "Futbol", venue: "İstanbul - Kadıköy", date: "2025-12-24", price: "₺900", image: "https://images.unsplash.com/photo-1551958219-acbc608c6377?w=800",
+            time: "19:00", badge: "💥 Yılın Maçı", description: "Yılın son derbisi Kadıköy'de! Tarihi rekabet, unutulmaz anlar için biletinizi şimdi alın.",
+            features: ["Yılbaşı özel koreografisi", "Sınırlı sayıda VIP", "After-party daveti", "Özel maç forması şansı"],
+            doorTime: "Maçtan 3 saat önce", ageLimit: "+7 yaş", warning: "⚠️ Son biletler! Sahte bilet uyarısı - sadece resmi kanallardan alın." },
+        
+        // ===== BASKETBOL ETKİNLİKLERİ =====
+        108: { name: "Fenerbahçe vs Efes", category: "Basketbol", venue: "İstanbul - Ülker Arena", date: "2025-12-09", price: "₺300", image: "https://images.unsplash.com/photo-1546519638-68e109498ffc?w=800",
+            time: "20:00", badge: "🏀 EuroLeague", description: "EuroLeague'in dev randevusu! İstanbul'un iki devi Ülker Arena'da kozlarını paylaşıyor.",
+            features: ["Tribün şovu", "Yarı zaman gösterileri", "Maskot etkinlikleri", "FB Store indirimi"],
+            doorTime: "Maçtan 1.5 saat önce", ageLimit: "Tüm yaşlar" },
+        109: { name: "Galatasaray vs Fenerbahçe", category: "Basketbol", venue: "İstanbul - Sinan Erdem", date: "2025-12-13", price: "₺400", image: "https://images.unsplash.com/photo-1504450758481-7338eba7524a?w=800",
+            time: "19:00", badge: "🔥 Derbi", description: "Basketbol derbisi Sinan Erdem'de! Sarı-Kırmızı tribünler coşacak.",
+            features: ["Dev ekran maç analizi", "Cheerleader şovu", "Ücretsiz park", "Taraftar paketleri"],
+            doorTime: "Maçtan 2 saat önce", ageLimit: "+7 yaş", warning: "⚠️ Deplasman seyircisi alınmamaktadır." },
+        110: { name: "Anadolu Efes vs Real Madrid", category: "Basketbol", venue: "İstanbul - Sinan Erdem", date: "2025-12-17", price: "₺500", image: "https://images.unsplash.com/photo-1519861531473-9200262188bf?w=800",
+            time: "20:45", badge: "⭐ EuroLeague", description: "Avrupa'nın iki devi karşı karşıya! Real Madrid'in yıldızlarını canlı izleme şansı.",
+            features: ["VIP karşılama", "Otograf imza saati", "Özel forma çekilişi", "Premium büfe"],
+            doorTime: "Maçtan 2 saat önce", ageLimit: "Tüm yaşlar" },
+        111: { name: "Fenerbahçe vs Barcelona", category: "Basketbol", venue: "İstanbul - Ülker Arena", date: "2025-12-21", price: "₺550", image: "https://images.unsplash.com/photo-1518063319789-7217e6706b04?w=800",
+            time: "20:00", badge: "🌟 Süper Maç", description: "EuroLeague klasiği! Barcelona'nın dünya yıldızları Ülker Arena'da.",
+            features: ["Meet & Greet şansı", "Sınırlı VIP biletler", "Özel hatıra ürünleri", "Canlı yayın röportajları"],
+            doorTime: "Maçtan 2 saat önce", ageLimit: "Tüm yaşlar", warning: "⚠️ Biletler hızla tükeniyor!" },
+        
+        // Sergi etkinlikleri
+        132: { name: "Van Gogh Immersive", category: "Sergi", venue: "İstanbul - Pera", date: "2025-12-08", price: "₺200", image: "https://images.unsplash.com/photo-1578301978693-85fa9c0320b9?w=800" },
+        133: { name: "Picasso Dijital", category: "Sergi", venue: "İstanbul - Tersane", date: "2025-12-15", price: "₺180", image: "https://images.unsplash.com/photo-1544967082-d9d25d867d66?w=800" },
+        134: { name: "Contemporary Art", category: "Sergi", venue: "İstanbul - Modern", date: "2025-12-22", price: "₺150", image: "https://images.unsplash.com/photo-1531243269054-5ebf6f34081e?w=800" },
+        135: { name: "Monet Experience", category: "Sergi", venue: "Ankara - CerModern", date: "2025-12-29", price: "₺220", image: "https://images.unsplash.com/photo-1518998053901-5348d3961a04?w=800" },
+        
+        // Festival etkinlikleri
+        116: { name: "Yılbaşı Festivali", category: "Festival", venue: "İstanbul - KüçükÇiftlik", date: "2025-12-31", price: "₺350", image: "https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?w=800" },
+        117: { name: "Kış Festivali", category: "Festival", venue: "Uludağ - Ski Center", date: "2025-12-15", price: "₺500", image: "https://images.unsplash.com/photo-1506157786151-b8491531f063?w=800" },
+        118: { name: "Aralık Festivali", category: "Festival", venue: "Antalya - Expo", date: "2025-12-20", price: "₺400", image: "https://images.unsplash.com/photo-1472653431158-6364773b2a56?w=800" },
+        119: { name: "Müzik Festivali", category: "Festival", venue: "İzmir - Fuarizm", date: "2025-12-25", price: "₺450", image: "https://images.unsplash.com/photo-1459749411175-04bf5292ceea?w=800" }
+    };
+    
+    // Veritabanında varsa kullan
+    if (fullEventDatabase[id]) {
+        const data = fullEventDatabase[id];
+        return createEventFromLocalData(id, data.name, data.date, data.venue, data.price, data.image, data.category, data);
+    }
+    
+    // Veritabanında yoksa kategori bazlı varsayılan oluştur
+    let category, name;
+    if (id >= 1 && id <= 25) { category = "Konser"; name = "Konser Etkinliği"; }
+    else if (id >= 26 && id <= 40) { category = "Rock"; name = "Rock Konseri"; }
+    else if (id >= 41 && id <= 55) { category = "Rap"; name = "Rap Konseri"; }
+    else if (id >= 56 && id <= 67) { category = "Elektronik"; name = "DJ Performansı"; }
+    else if (id >= 68 && id <= 79) { category = "Tiyatro"; name = "Tiyatro Gösterimi"; }
+    else if (id >= 80 && id <= 87) { category = "Opera"; name = "Opera Gösterisi"; }
+    else if (id >= 88 && id <= 97) { category = "Stand-up"; name = "Stand-up Gösterisi"; }
+    else if (id >= 98 && id <= 107) { category = "Futbol"; name = "Futbol Maçı"; }
+    else if (id >= 108 && id <= 115) { category = "Basketbol"; name = "Basketbol Maçı"; }
+    else if (id >= 116 && id <= 123) { category = "Festival"; name = "Festival"; }
+    else if (id >= 124 && id <= 131) { category = "Teknoloji"; name = "Tech Etkinliği"; }
+    else if (id >= 132 && id <= 137) { category = "Sergi"; name = "Sanat Sergisi"; }
+    else if (id >= 138 && id <= 143) { category = "Sinema"; name = "Film Gösterimi"; }
+    else { category = "Konser"; name = "Etkinlik"; }
+    
+    return createEventFromLocalData(id, name, null, "Türkiye", "₺400", null, category);
+}
+
     document.getElementById('eventDescription').textContent = event.description;
     
     // Update features
@@ -730,14 +904,3 @@ function loadSimilarEvents(currentEvent) {
 
 // Initialize
 document.addEventListener('DOMContentLoaded', loadEventDetails);
- 
- / /   = = = = = =   M O B I L E   M E N U   T O G G L E   = = = = = =  
- c o n s t   m o b i l e T o g g l e   =   d o c u m e n t . g e t E l e m e n t B y I d ( ' m o b i l e T o g g l e ' ) ;  
- c o n s t   n a v   =   d o c u m e n t . g e t E l e m e n t B y I d ( ' n a v ' ) ;  
-  
- i f   ( m o b i l e T o g g l e )   {  
-         m o b i l e T o g g l e . a d d E v e n t L i s t e n e r ( ' c l i c k ' ,   ( )   = >   {  
-                 n a v . c l a s s L i s t . t o g g l e ( ' a c t i v e ' ) ;  
-         } ) ;  
- }  
- 

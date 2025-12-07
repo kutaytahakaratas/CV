@@ -1469,27 +1469,6 @@ body::after {
     padding: var(--space-xl) 0;
   }
   
-  .hero-container {
-    grid-template-columns: 1fr;
-    gap: var(--space-lg);
-  }
-  
-  .hero-content {
-    text-align: center;
-  }
-  
-  .hero-carousel {
-    display: none;
-  }
-  
-  .hero-stats {
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: var(--space-lg);
-  }
-  
-  .stat-number {
-    font-size: 1.5rem;
   }
   
   .search-bar {

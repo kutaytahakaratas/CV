@@ -404,24 +404,6 @@
   color: var(--color-danger);
 }
 
-.modal-body {
-  padding: var(--space-lg);
-}
-
-/* Responsive */
-@media (max-width: 1024px) {
-  .seat-selection-layout {
-    grid-template-columns: 1fr;
-  }
-  
-  .cart-sidebar {
-    position: static;
-  }
-  
-  .seats-grid {
-    grid-template-columns: repeat(10, 1fr);
-  }
-}
 
 @media (max-width: 640px) {
   .seats-grid {

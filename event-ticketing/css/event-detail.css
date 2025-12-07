@@ -438,7 +438,8 @@
 
 @media (max-width: 768px) {
   .event-hero {
-    height: 350px;
+    height: 300px;
+    min-height: 300px;
   }
 
   .event-hero-title {
