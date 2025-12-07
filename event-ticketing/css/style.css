@@ -1466,50 +1466,74 @@ body::after {
   
   .hero {
     min-height: auto;
-    padding: var(--space-xl) 0;
+    padding: var(--space-lg) 0; /* Reduced padding */
     text-align: center;
   }
 
   .hero-container {
     grid-template-columns: 1fr;
-    gap: var(--space-lg);
-    padding: var(--space-lg) 0;
+    gap: var(--space-md);
+    padding: var(--space-md) var(--space-md); /* Added horizontal padding */
   }
 
   .hero-content {
     text-align: center;
-    order: 1; /* Ensure text is first if needed, or 2 if image first. usually text first. Default order is 0. */
+    order: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 0 var(--space-sm); /* Extra padding for content */
   }
 
   .hero-title {
-    font-size: 2.5rem;
+    font-size: 2rem; /* Reduced from 2.5rem */
     margin-bottom: var(--space-sm);
+    line-height: 1.1;
   }
 
   .hero-subtitle {
-    margin-bottom: var(--space-lg);
-    font-size: 1.1rem;
+    margin-bottom: var(--space-md);
+    font-size: 1rem; /* Slightly reduced */
+    max-width: 90%; /* Prevent too wide text */
   }
   
   .search-bar {
     flex-direction: column;
     width: 100%;
-    max-width: 400px;
+    max-width: 320px; /* Reduced width */
     margin: 0 auto;
+    gap: var(--space-xs);
+  }
+  
+  .search-input-wrapper input {
+    padding: 0.8rem 0.8rem 0.8rem 2.5rem; /* Reduced padding */
+    font-size: 0.9rem;
+  }
+  
+  .search-input-wrapper i {
+    left: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .search-bar .btn {
+    padding: 0.8rem 1.5rem; /* Reduced button sizing */
+    font-size: 0.95rem;
   }
 
   .hero-stats {
     justify-content: center;
-    margin-top: var(--space-lg);
-    padding-top: var(--space-lg);
+    margin-top: var(--space-md);
+    padding-top: var(--space-md);
+    gap: var(--space-lg);
+  }
+  
+  .stat-number {
+    font-size: 1.5rem; /* Reduced stat size */
   }
 
   .hero-carousel {
-    height: 300px; /* Smaller on mobile */
-    margin-top: var(--space-lg);
+    height: 250px; /* Further reduced height */
+    margin-top: var(--space-md);
     order: 2;
   }
   
