@@ -70,8 +70,13 @@ body {
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     object-fit: cover;
     object-position: center 55%;
+    image-rendering: auto;
     image-rendering: -webkit-optimize-contrast;
-    image-rendering: crisp-edges;
+    filter: contrast(1.15) brightness(1.05) saturate(1.1);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+    -webkit-font-smoothing: subpixel-antialiased;
 }
 
 /* Main Content */
