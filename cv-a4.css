@@ -6,11 +6,13 @@
 }
 
 :root {
-    --primary-color: #666;
+    --primary-color: #7a7a7a;
     --secondary-color: #999;
-    --accent-color: #333;
-    --bg-light: #f5f5f5;
-    --border-color: #ddd;
+    --accent-color: #4a4a4a;
+    --bg-light: #e8e8e8;
+    --bg-lighter: #f5f5f5;
+    --border-color: #ccc;
+    --timeline-color: #d4af37;
 }
 
 body {
@@ -34,7 +36,7 @@ body {
 
 /* Header */
 .cv-header {
-    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+    background: linear-gradient(135deg, #d8d8d8 0%, #c0c0c0 100%);
     padding: 30px 40px;
     display: flex;
     justify-content: space-between;
@@ -70,6 +72,41 @@ body {
     grid-template-columns: 35% 65%;
     gap: 0;
     height: calc(297mm - 160px);
+    position: relative;
+}
+
+/* Timeline separator */
+.cv-content::before {
+    content: '';
+    position: absolute;
+    left: 35%;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, 
+        var(--timeline-color) 0%, 
+        var(--timeline-color) 10%,
+        var(--border-color) 10%,
+        var(--border-color) 90%,
+        var(--timeline-color) 90%,
+        var(--timeline-color) 100%
+    );
+    z-index: 1;
+}
+
+/* Timeline dots */
+.cv-content::after {
+    content: '';
+    position: absolute;
+    left: calc(35% - 4px);
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    background: var(--timeline-color);
+    border: 2px solid white;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px var(--timeline-color);
+    z-index: 2;
 }
 
 /* Left Column */
