@@ -282,14 +282,22 @@ body {
 .project-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     margin-bottom: 8px;
+}
+
+.project-header h3 {
+    flex: 1;
+    font-size: 13px;
+    color: var(--primary-color);
+    font-weight: 600;
 }
 
 .project-links {
     display: flex;
     align-items: center;
     gap: 8px;
+    flex-shrink: 0;
 }
 
 .qr-code {
@@ -299,12 +307,6 @@ body {
     border-radius: 4px;
     padding: 2px;
     background: white;
-}
-
-.project-header h3 {
-    font-size: 13px;
-    color: var(--primary-color);
-    font-weight: 600;
 }
 
 .project-header h3 i {
