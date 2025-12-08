@@ -6,13 +6,17 @@
 }
 
 :root {
-    --primary-color: #7a7a7a;
-    --secondary-color: #999;
-    --accent-color: #4a4a4a;
-    --bg-light: #e8e8e8;
-    --bg-lighter: #f5f5f5;
-    --border-color: #ccc;
-    --timeline-color: #d4af37;
+    --primary-color: #2196F3;
+    --primary-dark: #1976D2;
+    --secondary-color: #FF6B35;
+    --accent-color: #333;
+    --text-color: #444;
+    --bg-light: #f0f4f8;
+    --bg-lighter: #ffffff;
+    --border-color: #e0e0e0;
+    --timeline-color: #FF6B35;
+    --header-gradient-1: #2196F3;
+    --header-gradient-2: #1976D2;
 }
 
 body {
@@ -36,17 +40,17 @@ body {
 
 /* Header */
 .cv-header {
-    background: linear-gradient(135deg, #d8d8d8 0%, #c0c0c0 100%);
+    background: linear-gradient(135deg, var(--header-gradient-1) 0%, var(--header-gradient-2) 100%);
     padding: 30px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 3px solid var(--primary-color);
+    border-bottom: 4px solid var(--secondary-color);
 }
 
 .header-left h1 {
     font-size: 32px;
-    color: var(--accent-color);
+    color: white;
     font-weight: 700;
     letter-spacing: 2px;
     margin-bottom: 5px;
@@ -54,7 +58,7 @@ body {
 
 .header-left .title {
     font-size: 16px;
-    color: var(--primary-color);
+    color: rgba(255, 255, 255, 0.95);
     font-weight: 400;
 }
 
@@ -128,18 +132,19 @@ body {
 
 .cv-section h2 {
     font-size: 14px;
-    color: var(--accent-color);
+    color: var(--primary-color);
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 15px;
     padding-bottom: 8px;
-    border-bottom: 2px solid var(--border-color);
+    border-bottom: 3px solid var(--primary-color);
     font-weight: 600;
 }
 
 .cv-section h2 i {
     margin-right: 8px;
-    color: var(--primary-color);
+    color: var(--secondary-color);
+    font-size: 15px;
 }
 
 /* Contact Items */
@@ -254,9 +259,15 @@ body {
 .project-item {
     margin-bottom: 15px;
     padding: 12px;
-    background: #f9f9f9;
+    background: linear-gradient(135deg, rgba(33, 150, 243, 0.05) 0%, rgba(33, 150, 243, 0.02) 100%);
     border-radius: 6px;
-    border-left: 3px solid var(--primary-color);
+    border-left: 4px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.project-item:hover {
+    background: linear-gradient(135deg, rgba(33, 150, 243, 0.1) 0%, rgba(33, 150, 243, 0.05) 100%);
+    transform: translateX(3px);
 }
 
 .project-header {
@@ -268,32 +279,33 @@ body {
 
 .project-header h3 {
     font-size: 12px;
-    color: var(--accent-color);
+    color: var(--primary-color);
     font-weight: 600;
 }
 
 .project-header h3 i {
     margin-right: 6px;
-    color: var(--primary-color);
+    color: var(--secondary-color);
 }
 
 .project-link {
     font-size: 10px;
-    color: var(--primary-color);
+    color: var(--secondary-color);
     text-decoration: none;
     display: flex;
     align-items: center;
     gap: 4px;
     transition: color 0.3s;
+    font-weight: 600;
 }
 
 .project-link:hover {
-    color: var(--accent-color);
+    color: var(--primary-color);
 }
 
 .project-desc {
     font-size: 10px;
-    color: var(--primary-color);
+    color: var(--text-color);
     margin-bottom: 8px;
     line-height: 1.6;
 }
@@ -306,11 +318,12 @@ body {
 
 .tech-tag {
     font-size: 9px;
-    background: white;
-    color: var(--primary-color);
+    background: var(--primary-color);
+    color: white;
     padding: 3px 8px;
-    border-radius: 3px;
-    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    border: none;
+    font-weight: 600;
 }
 
 /* Print Styles */
