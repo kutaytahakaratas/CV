@@ -1,536 +1,177 @@
 <!DOCTYPE html>
 <html lang="tr">
-
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Kutay Taha Karataş - Web Tasarımcı ve Frontend Developer. HTML5, CSS, JavaScript, React ve modern web teknolojileri konusunda uzman.">
-        <meta name="keywords" content="web tasarımcı, frontend developer, HTML, CSS, JavaScript, React, portfolio">
-        <meta
-        name="author" content="Kutay Taha Karataş">
-
-        <!-- Open Graph Meta Tags -->
-        <meta property="og:title" content="Kutay Taha Karataş - Web Tasarımcı">
-        <meta property="og:description" content="Modern web teknolojileri ile profesyonel web siteleri geliştiriyorum.">
-        <meta property="og:type" content="website">
-
-        <title>Kutay Taha Karataş - Web Tasarımcı & Frontend Developer</title>
-
-        <!-- Favicon -->
-        <link rel="icon" type="image/png" href="logo.png">
-        <link
-        rel="apple-touch-icon" href="logo.png">
-
-        <!-- Stylesheet -->
-        <link
-        rel="stylesheet" href="style.css">
-
-        <!-- Font Awesome for Icons -->
+        <title>Kutay Taha Karataş - CV</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="cv-a4.css">
     </head>
-
     <body>
-        <!-- Navigation -->
-        <nav class="navbar" id="navbar">
-            <div class="container">
-                <a href="index.html" class="navbar-brand">
-                    <img src="logo.png" alt="Logo" style="height: 32px; margin-right: 10px; vertical-align: middle;">
-                    KUTAY TAHA KARATAŞ
-                </a>
-                <ul class="navbar-menu" id="navbarMenu">
-                    <li>
-                        <a href="#home" class="active">Ana Sayfa</a>
-                    </li>
-                    <li>
-                        <a href="#about">Hakkımda</a>
-                    </li>
-                    <li>
-                        <a href="#experience">Deneyim</a>
-                    </li>
-                    <li>
-                        <a href="#skills">Beceriler</a>
-                    </li>
-                    <li>
-                        <a href="#projects">Projeler</a>
-                    </li>
-                    <li>
-                        <a href="#contact">İletişim</a>
-                    </li>
-                </ul>
-                <button class="mobile-menu-toggle" id="mobileMenuToggle">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </nav>
-
-        <!-- Hero Section -->
-        <section class="hero section" id="home">
-            <div class="container">
-                <div class="hero-content">
-                    <div class="hero-text">
-                        <h1 class="fade-in-up">
-                            Merhaba, Ben
-                            <br>
-                            <span class="gradient-text">Kutay Taha Karataş</span>
-                        </h1>
-                        <p class="hero-subtitle fade-in-up" style="animation-delay: 0.1s;">
-                            <span id="typed-text"></span>
-                            <span class="cursor">|</span>
-                        </p>
-                        <p class="hero-description fade-in-up" style="animation-delay: 0.2s;">
-                            Modern web teknolojileri kullanarak kullanıcı dostu, responsive ve estetik web siteleri
-                                                                                                                                                                                                                                                                                                                                                                                                                                                            tasarlıyorum.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                            HTML5, CSS3, JavaScript ve React ile projeler geliştiriyorum.
-                        </p>
-                        <div class="hero-cta fade-in-up" style="animation-delay: 0.3s;">
-                            <a href="about.html" class="btn btn-primary">
-                                <i class="fas fa-user"></i>
-                                Hakkımda
-                            </a>
-                            <a href="contact.html" class="btn btn-outline">
-                                <i class="fas fa-envelope"></i>
-                                İletişime Geç
-                            </a>
-                        </div>
-                    </div>
-                    <div class="hero-image fade-in" style="animation-delay: 0.4s;">
-                        <div class="hero-image-wrapper">
-                            <img src="profile.jpg" alt="Kutay Taha Karataş">
-                        </div>
-                    </div>
+        <div
+            class="cv-container">
+            <!-- Header -->
+            <header class="cv-header">
+                <div class="header-left">
+                    <h1>KUTAY TAHA KARATAŞ</h1>
+                    <p class="title">Web Tasarımcısı - Web Designer</p>
                 </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section class="about section" id="about">
-            <div class="container">
-                <h2 class="section-title reveal">Hakkımda</h2>
-                <div class="about-content">
-                    <div class="about-text reveal">
-                        <p>
-                            Bandırma 17 Eylül Üniversitesi Web Tasarımı ve Kodlama bölümünde eğitimime devam ediyorum.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        Web tasarım ve kodlama temelleri üzerine kapsamlı dersler aldım.
-                        </p>
-                        <p>
-                            HTML5 ve CSS kullanarak web sayfaları oluşturma, responsive (duyarlı) tasarım teknikleri,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        kullanıcı arayüzü (UI) ve temel kullanıcı deneyimi (UX) prensipleri üzerine uygulamalı
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        çalışmalar yaptım.
-                        </p>
-                        <p>
-                            Bunun yanında WordPress ile site kurma ve yönetme, Adobe XD ile arayüz tasarlama ve temel
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        proje geliştirme süreçleri hakkında bilgi ve deneyim kazandım. Kod yazarken yalnızca
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        işlevselliğe
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        değil, aynı zamanda bir anlatım ve anlam oluşturmaya da önem veriyorum.
-                        </p>
-                        <p>
-                            React, CSS ve Git gibi araçları kullanarak temiz, sade ve kullanıcı dostu arayüzler
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        geliştiriyorum.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        Tasarımdan uygulamaya kadar konularında sürekli kendimi geliştirerek fark yaratmayı
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        hedefliyorum.
-                        </p>
-                    </div>
-                    <div class="about-stats reveal">
-                        <div class="stat-card card">
-                            <span class="stat-number">2+</span>
-                            <span class="stat-label">Yıl Deneyim</span>
-                        </div>
-                        <div class="stat-card card">
-                            <span class="stat-number">100+</span>
-                            <span class="stat-label">Commit</span>
-                        </div>
-                        <div class="stat-card card">
-                            <span class="stat-number">5+</span>
-                            <span class="stat-label">Ana Teknoloji</span>
-                        </div>
-                        <div class="stat-card card">
-                            <span class="stat-number">10+</span>
-                            <span class="stat-label">GitHub Reposu</span>
-                        </div>
-                    </div>
+                <div class="header-right">
+                    <img src="profile-photo.jpg" alt="Kutay Taha Karataş" class="profile-photo">
                 </div>
-            </div>
-        </section>
+            </header>
 
-        <!-- Experience Section -->
-        <section class="experience section" id="experience">
-            <div class="container">
-                <h2 class="section-title reveal">Deneyim & Eğitim</h2>
+            <!-- Main Content -->
+            <div
+                class="cv-content">
+                <!-- Left Column -->
                 <div
-                    class="timeline">
-                    <!-- Current Education -->
-                    <div class="timeline-item reveal">
-                        <span class="timeline-date">Eylül 2024 - Haziran 2026</span>
-                        <div class="timeline-content card">
-                            <h3>Web Tasarımı ve Kodlama</h3>
-                            <p class="timeline-subtitle">Bandırma 17 Eylül Üniversitesi</p>
-                            <p>
-                                Ön lisans eğitimim süresince modern web teknolojileri, responsive tasarım,
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            kullanıcı deneyimi (UX) ve arayüz tasarımı (UI) konularında kapsamlı eğitim alıyorum.
-                            </p>
-                            <ul style="margin-top: 1rem; color: var(--color-text-secondary);">
-                                <li>HTML5, CSS3 ve JavaScript ile web geliştirme</li>
-                                <li>Responsive ve mobile-first tasarım prensipleri</li>
-                                <li>WordPress ve CMS sistemleri</li>
-                                <li>Adobe XD ile UI/UX tasarım</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Previous Education -->
-                    <div class="timeline-item reveal">
-                        <span class="timeline-date">2019 - 2023</span>
-                        <div class="timeline-content card">
-                            <h3>Lise Eğitimi</h3>
-                            <p class="timeline-subtitle">Yıldız Ahmet Arayıcı Anadolu Lisesi</p>
-                            <p>
-                                Lise eğitimim boyunca temel bilgisayar bilimleri ve web teknolojilerine olan ilgim başladı.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Üniversiteye geldikten sonra daha detaylı araçlar kullanmaya ve aldığım hataların üstüne gitmeye başladım. Kendi çabamla, basit ama kapsama alanı geniş projeler oluşturdum. Stajyer olarak çalışmaya başladığımda kendimi daha da geliştireceğime inanıyor ve mesleğimi severek yapacağımı düşünüyorum..
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Freelance Work -->
-                    <div class="timeline-item reveal">
-                        <span class="timeline-date">2025 - Devam Ediyor</span>
-                        <div class="timeline-content card">
-                            <h3>Freelance Web Developer</h3>
-                            <p class="timeline-subtitle">Serbest Çalışma</p>
-                            <p>
-                                Küçük ve orta ölçekli işletmeler için web siteleri tasarlıyor ve geliştiriyorum.
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Müşteri ihtiyaçlarını anlama, proje yönetimi konusunda deneyim
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            kazandım.
-                            </p>
-                            <ul style="margin-top: 1rem; color: var(--color-text-secondary);">
-                                <li>WordPress ve WooCommerce altyapısı kullanılarak yönetilebilir e-ticaret sitelerinin kurulması.</li>
-                                <li>Hazır temaların müşteri ihtiyaçlarına göre özelleştirilmesi ve CSS ile görsel düzenlemeler.</li>
-                                <li>Müşterilerin kurumsal kimliğine uygun, kullanıcı dostu web sitesi şablonlarının oluşturulması.</li>
-                                <li>HTML5, CSS3 ve temel JavaScript kullanılarak statik web sayfalarının dinamik hale getirilmesi.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section class="skills section" id="skills">
-            <div class="container">
-                <h2 class="section-title reveal">Beceriler</h2>
-                <div
-                    class="skills-grid">
-                    <!-- Frontend Skills -->
-                    <div class="skill-category card reveal">
-                        <h3>
-                            <span class="skill-category-icon animated-icon">
-                                <i class="fas fa-code"></i>
-                            </span>
-                            Frontend Development
-                        </h3>
-                        <div class="skill-list">
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">HTML5</span>
-                                    <span class="skill-level">İyi Düzey</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="--progress: 85%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">CSS3</span>
-                                    <span class="skill-level">İyi Düzey</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="--progress: 85%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">JavaScript</span>
-                                    <span class="skill-level">Temel Düzey</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="--progress: 50%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">React</span>
-                                    <span class="skill-level">Temel Düzey</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="--progress: 45%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Design & Tools -->
-                    <div class="skill-category card reveal">
-                        <h3>
-                            <span class="skill-category-icon animated-icon">
-                                <i class="fas fa-palette"></i>
-                            </span>
-                            Tasarım & Araçlar
-                        </h3>
-                        <div class="skill-list">
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">Adobe XD</span>
-                                    <span class="skill-level">İyi Düzey</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="--progress: 75%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">Photoshop</span>
-                                    <span class="skill-level">Orta Düzey</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="--progress: 60%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">Figma</span>
-                                    <span class="skill-level">Temel-Orta Düzey</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="--progress: 55%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">UI/UX Design</span>
-                                    <span class="skill-level">Orta Düzey</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="--progress: 65%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Backend & Database -->
-                    <div class="skill-category card reveal">
-                        <h3>
-                            <span class="skill-category-icon animated-icon">
-                                <i class="fas fa-server"></i>
-                            </span>
-                            Backend & Veritabanı
-                        </h3>
-                        <div class="skill-list">
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">WordPress</span>
-                                    <span class="skill-level">İyi Düzey</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="--progress: 75%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">PHP</span>
-                                    <span class="skill-level">Orta Düzey</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="--progress: 65%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">SQL</span>
-                                    <span class="skill-level">Orta Düzey</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="--progress: 70%"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="skill-header">
-                                    <span class="skill-name">Git</span>
-                                    <span class="skill-level">Orta Düzey</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="--progress: 75%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section class="projects section" id="projects">
-            <div class="container">
-                <h2 class="section-title reveal">Projelerim</h2>
-                <div class="projects-grid" style="min-height: 400px; display: flex; align-items: center; justify-content: center;">
-                    <div class="card reveal" style="text-align: center; padding: 3rem; max-width: 600px;">
-                        <i class="fas fa-code" style="font-size: 4rem; color: var(--color-primary); margin-bottom: 1.5rem;"></i>
-                        <h3 style="margin-bottom: 1rem; font-size: 2rem;">Yakında Eklenecek</h3>
-                        <p style="color: var(--color-text-secondary); font-size: 1.1rem;">
-                            Projelerim şu anda güncelleniyor. Çok yakında burada yeni ve heyecan verici projelerimi görebileceksiniz!
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section class="contact section" id="contact">
-            <div class="container">
-                <h2 class="section-title reveal">Benimle İletişime Geçin</h2>
-                <p class="contact-intro reveal">Tasarım tutkusuyla web projeleri geliştiriyorum. Her projede kullanıcı deneyimini ön planda tutmayı hedefliyorum.</p>
-
-                <!-- Availability Status -->
-                <div class="availability-banner reveal">
-                    <div class="availability-icon">
-                        <i class="fas fa-circle"></i>
-                    </div>
-                    <div class="availability-text">
-                        <h3>Yeni Projelere Açık</h3>
-                        <p>Freelance ve tam zamanlı iş fırsatlarını değerlendiriyorum</p>
-                    </div>
-                </div>
-
-                <!-- Contact Cards Grid -->
-                <div class="contact-cards-grid">
-                    <div class="contact-card reveal">
-                        <div class="contact-card-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <h3>E-posta</h3>
-                        <a href="mailto:kutaytahakaratas@gmail.com" class="contact-link">
-                            kutaytahakaratas@gmail.com
-                        </a>
-                    </div>
-
-                    <div class="contact-card reveal">
-                        <div class="contact-card-icon">
+                    class="left-column">
+                    <!-- Contact -->
+                    <section class="cv-section">
+                        <h2>
+                            <i class="fas fa-address-book"></i>
+                            İLETİŞİM</h2>
+                        <div class="contact-item">
                             <i class="fas fa-phone"></i>
+                            <span>0 533 130 28 32</span>
                         </div>
-                        <h3>Telefon</h3>
-                        <div class="contact-link">
-                            0 533 130 28 32
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>kutaytahakaratas@gmail.com</span>
                         </div>
-                    </div>
-
-                    <div class="contact-card reveal">
-                        <div class="contact-card-icon">
+                        <div class="contact-item">
                             <i class="fas fa-map-marker-alt"></i>
+                            <span>Bandırma 17 Eylül Üniversitesi</span>
                         </div>
-                        <h3>Konum</h3>
-                        <div class="contact-link">
-                            Bandırma 17 Eylül Üniversitesi<br>
-                            Bandırma, Balıkesir
+                    </section>
+
+                    <!-- Education -->
+                    <section class="cv-section">
+                        <h2>
+                            <i class="fas fa-graduation-cap"></i>
+                            EĞİTİM</h2>
+                        <div class="education-item">
+                            <div class="period">Eylül 2024 - Haziran 2026</div>
+                            <div class="institution">Bandırma 17 Eylül Üniversitesi</div>
+                            <div class="degree">Web Tasarımı Ve Kodlama</div>
                         </div>
-                    </div>
-                </div>
+                        <div class="education-item">
+                            <div class="period">2019 - 2023</div>
+                            <div class="institution">Yıldız Ahmet Arayıcı</div>
+                            <div class="degree">Anadolu Lisesi</div>
+                        </div>
+                    </section>
 
-                <!-- Social Media Section -->
-                <div class="social-section reveal">
-                    <h3 class="social-title">Sosyal Medyada Beni Takip Edin</h3>
-                    <div class="social-cards">
-                        <a href="https://www.linkedin.com/in/kutay-taha-karata%C5%9F-9b87a8386/" target="_blank" class="social-card linkedin">
-                            <div class="social-card-icon">
-                                <i class="fab fa-linkedin-in"></i>
-                            </div>
-                            <div class="social-card-content">
-                                <h4>LinkedIn</h4>
-                                <p>Profesyonel ağım</p>
-                            </div>
-                            <i class="fas fa-external-link-alt social-card-arrow"></i>
-                        </a>
-
-                        <a href="https://github.com/kutaytahakaratas" target="_blank" class="social-card github">
-                            <div class="social-card-icon">
-                                <i class="fab fa-github"></i>
-                            </div>
-                            <div class="social-card-content">
-                                <h4>GitHub</h4>
-                                <p>Kod projelerim</p>
-                            </div>
-                            <i class="fas fa-external-link-alt social-card-arrow"></i>
-                        </a>
-
-                        <a href="https://www.instagram.com/kutaytahakaratas/" target="_blank" class="social-card instagram">
-                            <div class="social-card-icon">
-                                <i class="fab fa-instagram"></i>
-                            </div>
-                            <div class="social-card-content">
-                                <h4>Instagram</h4>
-                                <p>Günlük paylaşımlar</p>
-                            </div>
-                            <i class="fas fa-external-link-alt social-card-arrow"></i>
-                        </a>
-                    </div>
-                </div>
-
-
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="container">
-                <div class="footer-content">
-                    <div class="footer-section">
-                        <h3 class="gradient-text">Kutay Taha Karataş</h3>
-                        <p>
-                            Modern web teknolojileri ile kullanıcı dostu ve estetik web siteleri tasarlıyorum.
-                        </p>
-                        <a href="Bej Profesyonel Yazılım Mühendisi Özgeçmiş.pdf" download="Kutay_Taha_Karatas_CV.pdf" class="btn-download">
-                            <i class="fas fa-download"></i>
-                            CV İndir (PDF)</a>
-                    </div>
-                    <div class="footer-section">
-                        <h3>Hızlı Linkler</h3>
-                        <ul class="footer-links">
-                            <li>
-                                <a href="#home">Ana Sayfa</a>
-                            </li>
-                            <li>
-                                <a href="#about">Hakkımda</a>
-                            </li>
-                            <li>
-                                <a href="#skills">Beceriler</a>
-                            </li>
-                            <li>
-                                <a href="#projects">Projeler</a>
-                            </li>
+                    <!-- Skills -->
+                    <section class="cv-section">
+                        <h2>
+                            <i class="fas fa-code"></i>
+                            BECERİLER</h2>
+                        <ul class="skills-list">
+                            <li>HTML5 - İyi Düzey</li>
+                            <li>CSS3 - İyi Düzey</li>
+                            <li>JavaScript - Temel Düzey</li>
+                            <li>React - Temel Düzey</li>
+                            <li>WordPress - İyi Düzey</li>
+                            <li>Adobe XD - İyi Düzey</li>
+                            <li>Photoshop - Orta Düzey</li>
+                            <li>Figma - Temel-Orta Düzey</li>
+                            <li>UI/UX Design - Orta Düzey</li>
+                            <li>PHP - Orta Düzey</li>
+                            <li>SQL - Orta Düzey</li>
+                            <li>Git - Orta Düzey</li>
                         </ul>
-                    </div>
-                    <div class="footer-section">
-                        <h3>Sosyal Medya</h3>
-                        <div class="social-links">
-                            <a href="https://www.linkedin.com/in/kutay-taha-karata%C5%9F-9b87a8386/" class="social-link" aria-label="LinkedIn" target="_blank">
-                                <i class="fab fa-linkedin-in"></i>
-                            </a>
-                            <a href="https://github.com/kutaytahakaratas" class="social-link" aria-label="GitHub" target="_blank">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://www.instagram.com/kutaytahakaratas/" class="social-link" aria-label="Instagram" target="_blank">
-                                <i class="fab fa-instagram"></i>
-                            </a>
+                    </section>
+
+                    <!-- Languages -->
+                    <section class="cv-section">
+                        <h2>
+                            <i class="fas fa-language"></i>
+                            YABANCI DİL</h2>
+                        <div class="language-item">
+                            <span>İngilizce - B1</span>
+                            <span class="level">Orta Seviye</span>
                         </div>
-                    </div>
+                    </section>
                 </div>
-                <div class="footer-bottom">
-                    <p>&copy; 2025 Kutay Taha Karataş. Tüm hakları saklıdır.</p>
+
+                <!-- Right Column -->
+                <div
+                    class="right-column">
+                    <!-- About -->
+                    <section class="cv-section">
+                        <h2>
+                            <i class="fas fa-user"></i>
+                            HAKKIMDA</h2>
+                        <p>Üniversite eğitimim süresince web tasarım ve kodlama temelleri üzerine kapsamlı dersler aldım. HTML5 ve CSS kullanarak web sayfaları oluşturma, responsive (duyarlı) tasarım teknikleri, kullanıcı arayüzü (UI) ve temel kullanıcı deneyimi (UX) prensipleri üzerine uygulamalı çalışmalar yaptım. Bunun yanında WordPress ile site kurma ve yönetme, Adobe XD ile arayüz tasarlama ve temel proje geliştirme süreçleri hakkında bilgi ve deneyim kazandım. Bunlarla beraber örnek projeler tasarladım.</p>
+                    </section>
+
+                    <!-- Professional Experience -->
+                    <section class="cv-section">
+                        <h2>
+                            <i class="fas fa-briefcase"></i>
+                            PROFESYONEL DENEYİM</h2>
+                        <ul class="experience-list">
+                            <li>Kod yazarken yalnızca işlevselliğe değil, aynı zamanda bir anlatım ve anlam oluşturmaya da önem veriyorum.</li>
+                            <li>React, CSS ve Git gibi araçları kullanarak temiz, sade ve kullanıcı dostu arayüzler geliştiriyorum.</li>
+                            <li>Tasarım, animasyon ve kullanıcı deneyimini konularında sürekli kendimi geliştirerek fark yaratmayı hedefliyorum</li>
+                            <li>Blog sitelerinden e-ticaret platformlarına, yapılacaklar listelerine kadar farklı konseptlerde projeler üretirken hem becerilerimi hem de dijital alandaki yeteneklerimi sürekli geliştiriyorum.</li>
+                        </ul>
+                    </section>
+
+                    <!-- Projects -->
+                    <section class="cv-section projects-section">
+                        <h2>
+                            <i class="fas fa-folder-open"></i>
+                            ÖRNEK PROJELER</h2>
+
+                        <div class="project-item">
+                            <div class="project-header">
+                                <h3>
+                                    <i class="fas fa-ticket-alt"></i>
+                                    KolayBilet - Etkinlik Biletleme Platformu</h3>
+                                <div class="project-links">
+                                    <a href="https://cv-8auw.vercel.app/" target="_blank" class="project-link">
+                                        <i class="fas fa-external-link-alt"></i>
+                                        Projeyi Görüntüle
+                                    </a>
+                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=60x60&data=https://cv-8auw.vercel.app/" alt="QR Kodu" class="qr-code">
+                                </div>
+                            </div>
+                            <p class="project-desc">Modern etkinlik biletleme platformu. 143+ etkinlik, dinamik filtreleme, koltuk seçimi ve responsive tasarım.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML5</span>
+                                <span class="tech-tag">CSS3</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Responsive</span>
+                            </div>
+                        </div>
+
+                        <div class="project-item">
+                            <div class="project-header">
+                                <h3>
+                                    <i class="fas fa-id-card"></i>
+                                    E-CV - Online Portfolio</h3>
+                                <div class="project-links">
+                                    <a href="https://cv-sigma-umber-75.vercel.app/" target="_blank" class="project-link">
+                                        <i class="fas fa-external-link-alt"></i>
+                                        Projeyi Görüntüle
+                                    </a>
+                                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=60x60&data=https://cv-sigma-umber-75.vercel.app/" alt="QR Kodu" class="qr-code">
+                                </div>
+                            </div>
+                            <p class="project-desc">Responsive kişisel CV websitesi. Modern UI/UX kullanımı.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">HTML5</span>
+                                <span class="tech-tag">CSS3</span>
+                                <span class="tech-tag">JavaScript</span>
+                                <span class="tech-tag">Modern UI</span>
+                            </div>
+                        </div>
+                    </section>
                 </div>
             </div>
-        </footer>
-
-        <!-- JavaScript -->
-        <script src="script.js"></script>
+        </div>
     </body>
-
 </html>
