@@ -69,7 +69,7 @@ body {
     border: 4px solid white;
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
     object-fit: cover;
-    object-position: center 45%;
+    object-position: center 55%;
     image-rendering: auto;
     image-rendering: -webkit-optimize-contrast;
     filter: contrast(1.15) brightness(1.05) saturate(1.1);
