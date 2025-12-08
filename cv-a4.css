@@ -377,21 +377,144 @@ body {
 /* Responsive for screen preview */
 @media screen and (max-width: 900px) {
     body {
-        padding: 10px;
+        padding: 0;
+        background: white;
     }
 
     .cv-container {
         width: 100%;
         min-height: auto;
         max-height: none;
+        box-shadow: none;
     }
 
+    /* Header adjustments */
+    .cv-header {
+        padding: 20px 15px;
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .header-left h1 {
+        font-size: 24px;
+    }
+
+    .header-left .title {
+        font-size: 14px;
+    }
+
+    .profile-photo {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+    }
+
+    /* Content layout */
     .cv-content {
         grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    .cv-content::before,
+    .cv-content::after {
+        display: none;
     }
 
     .left-column {
         border-right: none;
-        border-bottom: 1px solid var(--border-color);
+        border-bottom: 2px solid var(--border-color);
+        padding: 20px 15px;
+    }
+
+    .right-column {
+        padding: 20px 15px;
+    }
+
+    /* Section spacing */
+    .cv-section {
+        margin-bottom: 20px;
+    }
+
+    .cv-section h2 {
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+
+    /* Contact items */
+    .contact-item {
+        font-size: 11px;
+        margin-bottom: 10px;
+    }
+
+    /* Skills */
+    .skills-list li {
+        font-size: 11px;
+        margin-bottom: 8px;
+    }
+
+    /* Education */
+    .education-item {
+        margin-bottom: 15px;
+    }
+
+    .institution {
+        font-size: 12px;
+    }
+
+    .degree {
+        font-size: 11px;
+    }
+
+    /* Experience */
+    .experience-list li {
+        font-size: 11px;
+        margin-bottom: 10px;
+        line-height: 1.6;
+    }
+
+    /* Projects */
+    .project-item {
+        margin-bottom: 15px;
+        padding: 12px;
+    }
+
+    .project-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .project-links {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .project-header h3 {
+        font-size: 12px;
+    }
+
+    .project-link {
+        font-size: 10px;
+    }
+
+    .qr-code {
+        width: 50px;
+        height: 50px;
+    }
+
+    .project-desc {
+        font-size: 10px;
+    }
+
+    .tech-tag {
+        font-size: 8px;
+        padding: 2px 6px;
+    }
+
+    /* Right column text */
+    .right-column p {
+        font-size: 11px;
+        line-height: 1.7;
     }
 }
