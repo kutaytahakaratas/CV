@@ -30,11 +30,11 @@ body {
 .cv-container {
     width: 210mm;
     min-height: 297mm;
-    max-height: 297mm;
+    max-height: auto;
     background: white;
     margin: 0 auto;
     box-shadow: 0 0 20px rgba(0,0,0,0.1);
-    overflow: hidden;
+    overflow: visible;
     position: relative;
 }
 
@@ -84,8 +84,8 @@ body {
     display: grid;
     grid-template-columns: 35% 65%;
     gap: 0;
-    height: calc(297mm - 160px);
     position: relative;
+    align-items: stretch;
 }
 
 /* Timeline separator */
