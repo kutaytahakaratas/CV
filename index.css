@@ -266,7 +266,7 @@ body {
 }
 
 .project-item {
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     padding: 14px;
     background: linear-gradient(135deg, rgba(33, 150, 243, 0.05) 0%, rgba(33, 150, 243, 0.02) 100%);
     border-radius: 6px;
