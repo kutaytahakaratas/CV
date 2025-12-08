@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="tr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Kutay Taha Karataş - CV</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: 'Montserrat', sans-serif;
+                background: #e8e8e8;
+                display: flex;
+                justify-content: center;
+                padding: 20px;
+            }
+
+            .cv-container {
+                width: 210mm;
+                height: 297mm;
+                background: #fff;
+                display: grid;
+                grid-template-columns: 35% 65%;
+                grid-template-rows: auto 1fr;
+                box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+                overflow: hidden;
+            }
+
+            /* Header Section */
+            .header {
+                grid-column: 1 / -1;
+                background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+                padding: 30px 40px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-bottom: 4px solid #ff6b35; /* ORANGE Accent Line */
+            }
+
+            .header-content h1 {
+                color: #fff;
+                font-size: 2.2rem;
+                font-weight: 800;
+                letter-spacing: 3px;
+                margin-bottom: 8px;
+            }
+
+            .header-content p {
+                color: #ff6b35; /* ORANGE Accent */
+                font-size: 1rem;
+                font-weight: 600;
+                letter-spacing: 1px;
+                font-style: italic;
+            }
+
+            .profile-photo {
+                width: 150px;
+                height: 150px;
+                border-radius: 50%;
+                border: 4px solid #ff6b35; /* ORANGE Accent */
+                object-fit: cover;
+                object-position: center 60%; /* Shift focus down to move face UP */
+                box-shadow: 0 4px 15px rgba(255, 107, 53, 0.4);
+            }
+
+            /* Left Sidebar */
+            .sidebar {
+                background: linear-gradient(180deg, #1e3a8a 0%, #172554 100%); /* Deep Blue */
+                padding: 30px 25px;
+                color: #fff;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            .section-title {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                font-size: 1.1rem;
+                font-weight: 700;
+                margin-bottom: 15px;
+                color: #ff8c5a; /* Light Orange */
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+
+            .section-title i {
+                font-size: 1rem;
+                color: #ff6b35; /* Strong Orange */
+            }
+
+            /* Contact Section */
+            .contact-item {
+                display: flex;
+                align-items: center;
+                gap: 14px;
+                margin-bottom: 12px;
+                font-size: 0.9rem;
+            }
+
+            .contact-item i {
+                width: 18px;
+                text-align: center;
+                font-size: 0.95rem;
+                color: #ff6b35; /* ORANGE */
+            }
+
+            /* Education Section */
+            .education-item {
+                margin-bottom: 20px;
+            }
+
+            .education-item:last-child {
+                margin-bottom: 0;
+            }
+
+            .education-date {
+                color: #ffb703; /* Yellow-Orange for dates */
+                font-size: 0.82rem;
+                font-weight: 600;
+                margin-bottom: 4px;
+            }
+
+            .education-school {
+                font-size: 0.92rem;
+                font-weight: 700;
+                margin-bottom: 2px;
+            }
+
+            .education-degree {
+                font-size: 0.82rem;
+                color: rgba(255, 255, 255, 0.9);
+                font-style: italic;
+            }
+
+            /* Skills Section */
+            .skill-item {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 0.85rem;
+                margin-bottom: 10px;
+            }
+
+            .skill-item::before {
+                content: "•";
+                color: #ff6b35; /* ORANGE */
+                font-weight: bold;
+                font-size: 1.1rem;
+            }
+
+            .skill-level {
+                color: rgba(255, 255, 255, 0.85);
+                font-size: 0.75rem;
+            }
+
+            /* Language Section */
+            .language-item {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 0.9rem;
+            }
+
+            .language-level {
+                color: #ffb703; /* Yellow-Orange */
+                font-size: 0.85rem;
+                font-weight: 600;
+            }
+
+            /* Main Content */
+            .main-content {
+                padding: 35px 40px;
+                background: #fff;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            .main-section-title {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                font-size: 1.15rem;
+                font-weight: 700;
+                color: #1e3a8a; /* Deep Blue from Sidebar */
+                margin-bottom: 15px;
+                padding-bottom: 10px;
+                border-bottom: 2px solid #ff6b35; /* ORANGE Line */
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
+
+            .main-section-title i {
+                font-size: 1.05rem;
+                color: #ff6b35; /* ORANGE Icon */
+            }
+
+            /* About Section */
+            .about-text {
+                font-size: 0.92rem;
+                line-height: 1.8;
+                color: #333;
+                text-align: justify;
+            }
+
+            /* Experience Section */
+            .experience-item {
+                display: flex;
+                align-items: flex-start;
+                gap: 12px;
+                margin-bottom: 15px;
+                font-size: 0.9rem;
+                line-height: 1.7;
+                color: #333;
+            }
+
+            .experience-item:last-child {
+                margin-bottom: 0;
+            }
+
+            .experience-item::before {
+                content: "•";
+                color: #ff6b35; /* ORANGE Bullet */
+                font-weight: bold;
+                margin-top: 2px;
+                font-size: 1.1rem;
+            }
+
+            /* Projects Section */
+            .projects-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+
+            .project-card {
+                background: #fff;
+                border-radius: 10px;
+                padding: 18px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+                border: 1px solid #e0e0e0;
+                border-top: 3px solid #ff6b35; /* Orange accent on top */
+            }
+
+            /* KolayBilet Specifics - Orange Theme */
+            .project-kolaybilet {
+                border-top-color: #ff6b35;
+            }
+            .project-kolaybilet .project-icon {
+                background: linear-gradient(135deg, #ff6b35, #f7931e);
+            }
+            .project-kolaybilet .project-link {
+                color: #ff6b35;
+            }
+            .project-kolaybilet .project-tag {
+                background: rgba(255, 107, 53, 0.1);
+                color: #e85a24;
+            }
+
+            /* E-CV Specifics - Blue Theme */
+            .project-ecv {
+                border-top-color: #2563eb; /* Blue */
+            }
+            .project-ecv .project-icon {
+                background: linear-gradient(135deg, #2563eb, #3b82f6);
+            }
+            .project-ecv .project-link {
+                color: #2563eb;
+            }
+            .project-ecv .project-tag {
+                background: rgba(37, 99, 235, 0.1);
+                color: #1e40af;
+            }
+
+            .project-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                margin-bottom: 15px;
+            }
+
+            .project-info {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .project-icon {
+                width: 32px;
+                height: 32px;
+                background: linear-gradient(135deg, #ff6b35, #f7931e); /* Orange Gradient */
+                border-radius: 6px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #fff;
+                font-size: 0.85rem;
+            }
+
+            .project-title {
+                font-size: 0.85rem;
+                font-weight: 700;
+                color: #333;
+            }
+
+            .project-subtitle {
+                font-size: 0.75rem;
+                color: #666;
+            }
+
+            .project-link {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                font-size: 0.7rem;
+                color: #1e3a8a; /* Deep Blue Link */
+                text-decoration: none;
+                font-weight: 600;
+            }
+
+            .project-link:hover {
+                color: #ff6b35; /* Orange Hover */
+            }
+
+            .project-link i {
+                font-size: 0.65rem;
+            }
+
+            .project-tags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            .project-tag {
+                background: rgba(30, 58, 138, 0.08); /* Light Blue bg */
+                color: #1e3a8a; /* Deep Blue text */
+                padding: 5px 10px;
+                border-radius: 4px;
+                font-size: 0.65rem;
+                font-weight: 600;
+            }
+
+            /* Print Styles */
+            @media print {
+                html,
+                body {
+                    width: 210mm;
+                    height: 297mm;
+                    margin: 0;
+                    padding: 0;
+                    background: #fff;
+                    -webkit-print-color-adjust: exact;
+                    print-color-adjust: exact;
+                }
+
+                body {
+                    display: block; /* Disable flex centering for print */
+                }
+
+                .cv-container {
+                    box-shadow: none;
+                    width: 100%;
+                    height: 100%;
+                    margin: 0;
+                    padding: 0;
+                    border: none;
+                    display: grid; /* Keep grid layout */
+                    overflow: hidden;
+                }
+
+                * {
+                    -webkit-print-color-adjust: exact;
+                    print-color-adjust: exact;
+                }
+            }
+
+            @page {
+                size: A4;
+                margin: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div
+            class="cv-container">
+            <!-- Header -->
+            <header class="header">
+                <div class="header-content">
+                    <h1>KUTAY TAHA KARATAŞ</h1>
+                    <p>Web Tasarımcısı - Web Designer</p>
+                </div>
+                <img src="profile.jpg" alt="Kutay Taha Karataş" class="profile-photo">
+            </header>
+
+            <!-- Left Sidebar -->
+            <aside
+                class="sidebar">
+                <!-- İletişim -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <i class="fas fa-address-card"></i>
+                        İLETİŞİM
+                    </h2>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>0 533 130 28 32</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>kutaytahakaratas@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Bandırma 17 Eylül Üniversitesi</span>
+                    </div>
+                </div>
+
+                <!-- Eğitim -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <i class="fas fa-graduation-cap"></i>
+                        EĞİTİM
+                    </h2>
+                    <div class="education-item">
+                        <div class="education-date">Eylül 2024 - Haziran 2026</div>
+                        <div class="education-school">Bandırma 17 Eylül Üniversitesi</div>
+                        <div class="education-degree">Web Tasarımı Ve Kodlama</div>
+                    </div>
+                    <div class="education-item">
+                        <div class="education-date">2019 - 2023</div>
+                        <div class="education-school">Yıldız Ahmet Arayıcı</div>
+                        <div class="education-degree">Anadolu Lisesi</div>
+                    </div>
+                </div>
+
+                <!-- Beceriler -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <i class="fas fa-code"></i>
+                        BECERİLER
+                    </h2>
+                    <div class="skill-item">HTML5
+                        <span class="skill-level">• İyi Düzey</span>
+                    </div>
+                    <div class="skill-item">CSS3
+                        <span class="skill-level">• İyi Düzey</span>
+                    </div>
+                    <div class="skill-item">JavaScript
+                        <span class="skill-level">• Temel Düzey</span>
+                    </div>
+                    <div class="skill-item">React
+                        <span class="skill-level">• Temel Düzey</span>
+                    </div>
+                    <div class="skill-item">WordPress
+                        <span class="skill-level">• İyi Düzey</span>
+                    </div>
+                    <div class="skill-item">Adobe XD
+                        <span class="skill-level">• İyi Düzey</span>
+                    </div>
+                    <div class="skill-item">Photoshop
+                        <span class="skill-level">• Orta Düzey</span>
+                    </div>
+                    <div class="skill-item">Figma
+                        <span class="skill-level">• Temel-Orta Düzey</span>
+                    </div>
+                    <div class="skill-item">UI/UX Design
+                        <span class="skill-level">• Orta Düzey</span>
+                    </div>
+                    <div class="skill-item">PHP
+                        <span class="skill-level">• Orta Düzey</span>
+                    </div>
+                    <div class="skill-item">SQL
+                        <span class="skill-level">• Orta Düzey</span>
+                    </div>
+                    <div class="skill-item">Git
+                        <span class="skill-level">• Orta Düzey</span>
+                    </div>
+                </div>
+
+                <!-- Yabancı Dil -->
+                <div class="section">
+                    <h2 class="section-title">
+                        <i class="fas fa-language"></i>
+                        YABANCI DİL
+                    </h2>
+                    <div class="language-item">
+                        <span>İngilizce - B1</span>
+                        <span class="language-level">Orta Seviye</span>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main
+                class="main-content">
+                <!-- Hakkımda -->
+                <div class="main-section">
+                    <h2 class="main-section-title">
+                        <i class="fas fa-user"></i>
+                        HAKKIMDA
+                    </h2>
+                    <p class="about-text">
+                        Üniversite eğitimim süresince web tasarım ve kodlama temelleri üzerine kapsamlı dersler aldım. HTML5 ve CSS kullanarak web sayfaları oluşturma, responsive (duyarlı) tasarım teknikleri, kullanıcı arayüzü (UI) ve temel kullanıcı deneyimi (UX) prensipleri üzerine uygulamalı çalışmalar yaptım. Bunun yanında WordPress ile site kurma ve yönetme, Adobe XD ile arayüz tasarlama ve temel proje geliştirme süreçleri hakkında bilgi ve deneyim kazandım. Bunlarla beraber örnek projeler tasarladım.
+                    </p>
+                </div>
+
+                <!-- Profesyonel Deneyim -->
+                <div class="main-section">
+                    <h2 class="main-section-title">
+                        <i class="fas fa-briefcase"></i>
+                        PROFESYONEL DENEYİM
+                    </h2>
+                    <div class="experience-item">
+                        Kod yazarken yalnızca işlevselliğe değil, aynı zamanda bir anlatım ve anlam oluşturmaya da önem veriyorum.
+                    </div>
+                    <div class="experience-item">
+                        React, CSS ve Git gibi araçları kullanarak temiz, sade ve kullanıcı dostu arayüzler geliştiriyorum.
+                    </div>
+                    <div class="experience-item">
+                        Tasarım, animasyon ve kullanıcı deneyimini konularında sürekli kendimi geliştirerek fark yaratmayı hedefliyorum.
+                    </div>
+                    <div class="experience-item">
+                        Blog sitelerinden e-ticaret platformlarına, yapılacaklar listelerine kadar farklı konseptlerde projeler üretirken hem becerilerimi hem de dijital alandaki yeteneklerimi sürekli geliştiriyorum.
+                    </div>
+                </div>
+
+                <!-- Örnek Projeler -->
+                <div class="main-section">
+                    <h2 class="main-section-title">
+                        <i class="fas fa-folder-open"></i>
+                        ÖRNEK PROJELER
+                    </h2>
+                    <div class="projects-grid">
+                        <div class="project-card project-kolaybilet">
+                            <div class="project-header">
+                                <div>
+                                    <div class="project-info">
+                                        <div class="project-icon">
+                                            <i class="fas fa-ticket-alt"></i>
+                                        </div>
+                                        <div>
+                                            <div class="project-title">KolayBilet - Etkinlik Biletleme</div>
+                                            <div class="project-subtitle">Platformu</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="https://cv-8auw.vercel.app/" class="project-link" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    Projeyi Görüntüle
+                                </a>
+                            </div>
+                            <div class="project-tags">
+                                <span class="project-tag">HTML5</span>
+                                <span class="project-tag">CSS3</span>
+                                <span class="project-tag">JavaScript</span>
+                                <span class="project-tag">Responsive</span>
+                            </div>
+                        </div>
+
+                        <div class="project-card project-ecv">
+                            <div class="project-header">
+                                <div>
+                                    <div class="project-info">
+                                        <div class="project-icon">
+                                            <i class="fas fa-globe"></i>
+                                        </div>
+                                        <div>
+                                            <div class="project-title">E-CV - Online Portfolio</div>
+                                            <div class="project-subtitle"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="https://dainty-sunshine-8656eb.netlify.app/" class="project-link" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    Projeyi Görüntüle
+                                </a>
+                            </div>
+                            <div class="project-tags">
+                                <span class="project-tag">HTML5</span>
+                                <span class="project-tag">CSS3</span>
+                                <span class="project-tag">JavaScript</span>
+                                <span class="project-tag">Modern UI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </body>
+</html>
