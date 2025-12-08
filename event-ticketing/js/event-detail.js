@@ -526,3 +526,13 @@ function loadSimilarEvents(currentEvent) {
 
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', loadEventDetails);
+
+// ====== MOBILE MENU TOGGLE ======
+const mobileToggle = document.getElementById('mobileToggle');
+const nav = document.getElementById('nav');
+
+if (mobileToggle) {
+    mobileToggle.addEventListener('click', () => {
+        nav.classList.toggle('active');
+    });
+}
