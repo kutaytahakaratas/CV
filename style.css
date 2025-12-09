@@ -2334,3 +2334,38 @@ i {
     font-size: 0.75rem;
   }
 }
+
+/* Projects Note */
+.projects-note {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-xl);
+  padding: var(--space-lg);
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px dashed rgba(59, 130, 246, 0.3);
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+
+.projects-note i {
+  font-size: 1.2rem;
+  color: var(--color-primary);
+}
+
+.projects-note p {
+  margin: 0;
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  font-style: italic;
+}
+
+@media (max-width: 480px) {
+  .projects-note {
+    flex-direction: column;
+    gap: var(--space-xs);
+    padding: var(--space-md);
+  }
+}
+
