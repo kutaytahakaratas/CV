@@ -1,32 +1,25 @@
 /* ==========================================
    MODERN PORTFOLIO - DESIGN SYSTEM
-   Blue Theme with Yellow Accents
    ========================================== */
 
-/* Import Google Fonts - Distinctive Typography */
-@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Nunito:wght@300;400;500;600;700&display=swap');
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 /* ==========================================
    CSS VARIABLES - Design Tokens
    ========================================== */
 :root {
-  /* Colors - Professional Blue Palette with Yellow Accents */
+  /* Colors - Professional Blue Palette */
   --color-primary: hsl(217, 91%, 60%);
   --color-primary-light: hsl(217, 91%, 70%);
   --color-primary-dark: hsl(217, 91%, 50%);
   --color-secondary: hsl(199, 89%, 48%);
   --color-accent: hsl(189, 94%, 43%);
-  
-  /* Yellow Accent Colors */
-  --color-yellow: #ffd60a;
-  --color-yellow-light: #ffe66d;
-  --color-yellow-dark: #e6c200;
 
   /* Gradients */
   --gradient-primary: linear-gradient(135deg, hsl(217, 91%, 60%) 0%, hsl(199, 89%, 48%) 100%);
   --gradient-hero: linear-gradient(135deg, hsl(217, 91%, 60%) 0%, hsl(199, 89%, 48%) 50%, hsl(142, 71%, 45%) 100%);
   --gradient-card: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(14, 165, 233, 0.1) 100%);
-  --gradient-yellow: linear-gradient(135deg, #ffd60a 0%, #ffe66d 100%);
 
   /* Neutral Colors - Dark Theme */
   --color-bg-primary: hsl(220, 26%, 10%);
@@ -50,8 +43,7 @@
   --space-3xl: 6rem;
 
   /* Typography Scale */
-  --font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-family-display: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -75,7 +67,6 @@
   --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
   --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.15);
   --shadow-glow: 0 0 40px rgba(59, 130, 246, 0.2);
-  --shadow-yellow: 0 0 30px rgba(255, 214, 10, 0.15);
 
   /* Transitions */
   --transition-fast: 150ms ease-in-out;
@@ -123,7 +114,6 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-family-display);
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: var(--space-md);
@@ -615,13 +605,13 @@ a:hover {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 52px;
-  height: 52px;
-  min-width: 52px;
+  width: 48px;
+  height: 48px;
   background: var(--gradient-primary);
   border-radius: var(--radius-md);
   color: white;
   position: relative;
+  overflow: hidden;
   transition: all var(--transition-base);
 }
 
@@ -714,9 +704,8 @@ a:hover {
 }
 
 .skill-level {
-  color: var(--color-yellow);
+  color: var(--color-text-muted);
   font-size: var(--font-size-sm);
-  font-weight: 500;
 }
 
 .skill-bar {
@@ -732,17 +721,6 @@ a:hover {
   border-radius: var(--radius-full);
   transition: width 1s ease-out;
   width: 0;
-  position: relative;
-}
-
-.skill-progress::after {
-  content: '';
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 20px;
-  background: linear-gradient(90deg, transparent, rgba(255, 214, 10, 0.5));
 }
 
 .skill-progress.animate {
@@ -835,141 +813,6 @@ a:hover {
 
 .project-link i {
   font-size: 0.75rem;
-}
-
-/* Large Project Card */
-.project-card-large {
-  grid-column: span 2;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  overflow: hidden;
-}
-
-.project-card-large .project-image-wrapper {
-  position: relative;
-  height: 100%;
-  min-height: 300px;
-}
-
-.project-card-large .project-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Status Badge - Blue Theme */
-.project-status {
-  position: absolute;
-  top: var(--space-md);
-  right: var(--space-md);
-}
-
-.status-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  border-radius: var(--radius-full);
-  font-size: var(--font-size-sm);
-  font-weight: 600;
-}
-
-.status-badge.in-development {
-  background: rgba(59, 130, 246, 0.9);
-  color: white;
-  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
-}
-
-.status-badge i {
-  font-size: 0.75rem;
-}
-
-/* Project Header with Icon */
-.project-header {
-  display: flex;
-  align-items: center;
-  gap: var(--space-md);
-  margin-bottom: var(--space-md);
-}
-
-.project-icon-wrapper {
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--gradient-primary);
-  border-radius: var(--radius-md);
-  color: white;
-  font-size: 1.25rem;
-}
-
-.project-title {
-  font-size: var(--font-size-xl);
-  margin: 0;
-}
-
-.project-subtitle {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-muted);
-  margin: 0;
-}
-
-.project-description {
-  color: var(--color-text-secondary);
-  line-height: 1.7;
-  margin-bottom: var(--space-lg);
-}
-
-/* Tech Tags - Blue/Yellow Theme */
-.project-tech-stack {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: var(--space-lg);
-}
-
-.tech-tag {
-  padding: 0.375rem 0.75rem;
-  background: rgba(59, 130, 246, 0.15);
-  border: 1px solid rgba(59, 130, 246, 0.3);
-  border-radius: var(--radius-sm);
-  font-size: var(--font-size-xs);
-  color: var(--color-primary-light);
-  font-weight: 500;
-}
-
-/* Project Link Button */
-.project-link-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: var(--radius-md);
-  font-weight: 600;
-  font-size: var(--font-size-sm);
-  transition: all var(--transition-base);
-}
-
-.project-link-btn.primary {
-  background: var(--gradient-primary);
-  color: white;
-}
-
-.project-link-btn.primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
-}
-
-@media (max-width: 768px) {
-  .project-card-large {
-    grid-column: span 1;
-    grid-template-columns: 1fr;
-  }
-  
-  .project-card-large .project-image-wrapper {
-    min-height: 200px;
-  }
 }
 
 /* ==========================================
@@ -2239,7 +2082,7 @@ i {
    PROJECT CARD - LARGE STYLE (KolayBilet)
    ========================================== */
 .project-card-large {
-  max-width: 900px;
+  max-width: 600px;
   margin: 0 auto;
   padding: 0;
   overflow: hidden;
@@ -2282,9 +2125,9 @@ i {
 }
 
 .status-badge.in-development {
-  background: rgba(59, 130, 246, 0.9);
-  color: white;
-  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.4);
+  background: rgba(245, 158, 11, 0.9);
+  color: #1a1a1a;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
 }
 
 .status-badge i {
@@ -2305,14 +2148,14 @@ i {
 .project-icon-wrapper {
   width: 50px;
   height: 50px;
-  background: var(--gradient-primary);
+  background: linear-gradient(135deg, #ff6b35, #f59e0b);
   border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
   font-size: 1.4rem;
-  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
 }
 
 .project-card-large .project-title {
@@ -2377,14 +2220,14 @@ i {
 }
 
 .project-link-btn.primary {
-  background: var(--gradient-primary);
+  background: linear-gradient(135deg, #ff6b35, #f59e0b);
   color: white;
-  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
 }
 
 .project-link-btn.primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
   color: white;
 }
 
