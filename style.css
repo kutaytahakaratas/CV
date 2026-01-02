@@ -767,16 +767,8 @@ a:hover {
   transition: all var(--transition-base);
 }
 
-.project-image {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  transition: transform var(--transition-slow);
-}
 
-.project-card:hover .project-image {
-  transform: scale(1.05);
-}
+
 
 .project-content {
   padding: var(--space-lg);
@@ -855,7 +847,18 @@ a:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
+  transform: translateZ(0) scale(1);
 }
+
+.project-card-large:hover .project-image {
+  transform: translateZ(0) scale(1.05);
+}
+
 
 /* Status Badge - Blue Theme */
 .project-status {
